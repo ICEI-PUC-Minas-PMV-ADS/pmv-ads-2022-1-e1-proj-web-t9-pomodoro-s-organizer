@@ -1,46 +1,57 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+No mundo atual está cada vez mais rápido o surgimento de novas informações e inovações tecnológicas. A cada dia são postados milhões de horas de vídeos (KINAST Priscila, 2019)  e um número incontável de arquivos de fotos e textos. Constantemente são lançados novos aplicativos e novas tecnologias visando atender as necessidades e promovendo melhorias na qualidade de vida e de trabalho. Novos mercados surgem cada vez mais rapidamente e mercados já consolidados correm o risco de desaparecer. 
+
+Desta forma, todo profissional, de qualquer área de atuação, tem o desafio de se manter constantemente atualizado buscando conhecer todas as novas informações e tecnologias.
+
+Além disso, após a pandemia de COVID-19, o mundo está passando por uma profunda mudança de paradigma. Dado a necessidade de distanciamento social, o processo de trabalho e estudo remoto acelerou em um nível extraordinário. Surgiram várias plataformas, outras foram aprimoradas e o mais importante: as pessoas tiveram que aprender a estudar e trabalhar remotamente.
+
+Neste contexto surge a necessidade de grande disciplina e capacidade de autogerenciamento, pois os indivíduos se encontram sozinhos em seus ambientes de trabalho e precisam de organização e foco. É desafiador manter o ritmo adequado, pois apesar de as pessoas estarem sozinhas, existe uma infinidade de formas de distração, como app de conversas e mídias sociais, que desviam o foco da execução tarefa. 
+
+Diante disso, torna-se fundamental que as pessoas tenham grande capacidade de organização, tanto para planejamento de atividades (trabalho ou estudo) quanto para verificar se a programação prévia está sendo cumprida. Somente assim o indivíduo poderá usufruir da grande disponibilidade de conteúdo que existe atualmente.
+
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+Conforme exposto, o problema que se busca resolver com este projeto é a dificuldade que os indivíduos encontram tanto para fazer um planejamento de estudo bem como para garantir que o planejamento esteja sendo cumprido de forma eficiente. 
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+Vivemos em um momento da economia da atenção que “é uma forma de se lidar com a administração de informação que trata a atenção humana como uma commodity” (WIKPEDIA, 20222)  em que cada vez mais as empresas buscam formas de atrair a atenção de seus clientes em busca de poder oferecer anúncios. Ou seja, nossa atenção virou um produto muito valorizado no mercado. 
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Nesse cenário os celulares são grande foco de distração, conforme exposto na reportargem “Celulares: Smartphone, uma arma de distração em massa” (ELOLA Joseba, 2017)  a presença constante de notificações está prejudicando a capacidade de concentração das pessoas, pois, constantemente mudamos nosso foco de atenção. Conforme a reportagem afirma, existem estudos que “... aponta que quando estamos trabalhando em frente a um computador mudamos de tela … a cada 47 segundos” (ELOLA Joseba, 2017) 
+
+Ainda segundo a reportagem,  “proteger e cultivar a atenção dos seres humanos, preservar o direito das pessoas a se concentrar, é um dos desafios que agora estão sobre a mesa”. (ELOLA Joseba, 2017) 
+
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo geral deste trabalho é fornecer uma plataforma que possibilite às pessoas a realizar, de forma fácil e intuitiva, o planejamento de estudo e fornecer ferramentas para que o planejamento seja cumprido de forma eficaz, ajudando os indivíduos a manterem o foco e atenção na atividade, com tempos de estudos/trabalho e descanso bem definidos Como objetivos específicos, podemos ressaltar:
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+●	Fornecer funcionalidades que permitam fazer o planejamento das tarefas a serem realizadas.
+
+●	Fornecer funcionalidades que permitam controlar a execução das tarefas.
+
+●	Fornecer funcionalidades de controle de tempo de atividade e pausa (Método Pomodoro).
+
+●	Fornecer funcionalidades que ajudem o usuário a manter a atenção na atividade.
+
+
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+Existe uma demanda crescente de cursos à distância, por exemplo em cursos superiores da rede privada o total de ingressantes por EAD é maior que a modalidade individual (INEP, 2020).
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+Além disso, estudos recentes de neurociência estão propondo novas estratégias de estudos, e estas descobertas comprovam a alta eficiência em intercalar tempos de estudo com o tempo de pausa, onde o tempo de pausa reativa a memória (SCHLICHTING, 2014).  
 
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Atualmente está bastante difundido o método Pomodoro, criado por Francesco Cirillo, que basicamente consiste em intercalar um tempo pré-determinado de estudo e pausa (HENKIN, 2021). 
+
+Na última pesquisa realizado pela Comissão Própria de Avaliação da  PUC Minas ficou demonstrando que a maior dificuldade encontrado pelos alunos durante o regime letivo remoto  foi a dificuldade de concentração:
+
+Figura 1 – Principais Dificuldades 
+Fonte: PUC Minas – Comissão Própria de Avaliação. 
+
+Desta forma, pode-se concluir que este projeto pode trazer grande benefício para a sociedade em geral bem como especificamente para os alunos da PUC Minas. 
+
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
-
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Qualquer pessoa que esteja estudando algum assunto complexo e/ou extenso e que necessita de planejamento e método para conseguir atingir seus objetivos da melhor forma possível. Naturalmente, por necessitar de alguma disciplina, provavelmente será melhor aproveitado por pessoas acima de 12 anos, que saibam ler e tenham acesso ao computador e à internet.
