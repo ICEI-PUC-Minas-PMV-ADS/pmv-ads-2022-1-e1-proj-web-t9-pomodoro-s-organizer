@@ -1,23 +1,24 @@
-# TÍTULO DO PROJETO
+# POMODORO'S ORGANIZER
 
-`CURSO`
+`ANÁLISE E DESNVOLVIMENTO DE SISTEMA`
 
-`DISCIPLINA`
+`EIXO 1 - PROJETO: DESENVOLVIMENTO DE APLICAÇÃO WEB FRONT-END - TURMA 09 - 2022/1`
 
-`SEMESTRE`
+`1 SEMESTRE`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Um site que une o Método Pomodoro a uma agenda semanal personalizável para que atenda a necessidade de organização e controle de estudos.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Arthur Beraldo Ribeiro Diniz 
+* Isabela Aparecida dos Santos 
+* Leonardo Moreira Franco de Souza
+* Lucas Eduardo Honório da Silva 
+* Luciano Ribeiro do Prado 
 
 ## Orientador
 
-* Nome completo do professor 1
+* Daniela Carvalho Monteiro Ferreira 
 
 ## Instruções de utilização
 
