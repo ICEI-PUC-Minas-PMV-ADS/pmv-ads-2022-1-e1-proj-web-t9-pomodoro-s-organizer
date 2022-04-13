@@ -46,10 +46,11 @@ Atualmente está bastante difundido o método Pomodoro, criado por Francesco Cir
 
 Na última pesquisa realizado pela Comissão Própria de Avaliação da  PUC Minas ficou demonstrando que a maior dificuldade encontrado pelos alunos durante o regime letivo remoto  foi a dificuldade de concentração:
 
-Figura 1 – Principais Dificuldades 
-<img src="docs/img/projeto_doc_contexto_tabela1.png" alt="Figura1 - Cinco Principais dificudades">
+Figura 1 – Principais Dificuldades <br>
+<img src="/docs/img/projeto_doc_contexto_tabela1.png" alt="Figura1 - Cinco Principais dificudades">
 
 Fonte: PUC Minas – Comissão Própria de Avaliação. 
+
 
 Desta forma, pode-se concluir que este projeto pode trazer grande benefício para a sociedade em geral bem como especificamente para os alunos da PUC Minas. 
 
