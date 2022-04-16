@@ -1,44 +1,53 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
+<span style="color:red">Pré-requisitos: <a href="01-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição exata do problema e os pontos mais relevantes a serem tratados neste projeto foi consolidada através de reuniões periódicas entre os integrantes do grupo praticando um brainstorming, de trabalho de pesquisa  em reportagens e publicações acadêmicas e através de entrevistas de personas sobre o problema que o grupo propôs.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo de entendimento do problema são apresentadas nas tabelas que se seguem.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+|Nome       | Idade | UF           |Motivação     |
+|-----------|-------|--------------|--------------|
+|Ana Carla  | 20    | Goiás        |ENEM          |
+|Emanuelle  | 18    | Minas Gerais | ENEM         |
+|Thamyres   | 17    | Minas Gerais | ENEM         |
+|Jhoel      | 54    | Minas Gerais | Certificado  |
+|Kauane     | 16    | Minas Gerais | ENEM         |
+|Isabella   | 18    | Minas Gerais | ENEM         |
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+| Persona | Dificuldades | Em relação ao projeto |
+|--------------|----------------|-------------------------|
+| Ana Carla | Afirmou que manter a concentração nos estudos é difícil, apesar de dedicar de 6 a 8 horas por dia para isso. Apesar das dificuldades, conseguiu um resultado satisfatório no ENEM. Disse que sentiu muita falta de alguma ferramenta que a ajudasse na gestão do tempo. | Disse que usaria muito um site, ou até mesmo um App, que a ajudasse a focar no seu tempo de estudo e a guiasse para que não desperdiçasse seu tempo. |
+| Emanuelle |Acredita que o fato de não ter tido uma boa base no Ensino Fundamental e  Ensino Médio influenciou mais do que a dificuldade de organização. Seguindo uma rotina de 6 horas por dia de estudo não atingiu a pontuação desejada. Encontrou ferramentas de gestão de tempo, porém não se adaptou a nenhuma.|Ela acredita que uma ferramenta customizável e de fácil utilização fosse contribuir muito para seus estudos.|
+|Thamyres|Sua maior dificuldade foi se adaptar ao EAD, por ter ficado perdida e sem rumo quanto aos estudos. Obteve uma boa nota no ENEM, mas pretende melhorar esse resultado no próximo ano com a utilização de técnicas de estudo.|Acredita que, um site que ajudasse a elaborar um cronograma de estudos e dividir o tempo de acordo com as dificuldades entre as disciplinas, seria de grande ajuda.|
+|Jhoel|Possui dificuldade em conciliar trabalho e estudos e possui poucas horas livres para se dedicar. Não se considera uma pessoa disciplinada o suficiente para fazer um planejamento de estudos, mas também não tem muita facilidade com tecnologia.|Usaria a ferramenta se ela fosse bem intuitiva e se não fosse necessário muitas configurações|
+|Kauane|Sente que fica dispersa por não entender o conteúdo e não possui organização clara dos estudos. Também não encontra grande disponibilidade de aplicativos que disponham de interações para pessoas com deficiência visual.|Apresentou entusiasmo ao saber que a ferramenta dispõe de comandos de voz e avisos sonoros para diferentes momentos do estudo.|
+|Isabella|Sua maior dificuldade foi lidar com a pressão que sentia e ansiedade próxima e durante as provas. Estudou cerca de 4 a 5 horas por dia e conseguiu obter o resultado esperado. Fez uso de uma ferramenta através de um site que a ajudou a montar um cronograma, e acredita que isso influenciou muito no resultado.|Disse que usaria essa ferramenta e que recomendaria bastante para estudantes inexperientes ainda com provas longas, por acreditar muito na eficiência deste tipo de site.|
+
+
+
+
+
+   
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
+|EU COMO...<br>`PERSONA`| ...QUERO/PRECISO ...<br>`FUNCIONALIDADE` |...PARA ...<br>`MOTIVO/VALOR`  |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+| Ana Carla | Poder focar no meu tempo de estudo, sem desvio de atenção. | Para não me distrair durante o estudo e poder cumprir o cronograma que estabelecido. |
+| Ana Carla | Poder ter um guia de quais matérias estudar. | Não desperdiçar tempo estudando matérias erradas. |
+| Thamyres | Poder elaborar um cronograma de estudo que  dividisse o tempo de acordo com as dificuldades entre as disciplinas. | Não ficar perdido sobre qual matéria estudar e dividir o tempo adequadamente. |
+| Emanuelle | poder fazer minha agenda de estudos, de forma rápida e fácil. | Para que eu possa seguir com minha rotina de estudos. |
+| Jhoel | Algo fácil de para organizar meus estudos | Não sou muito disciplinado, preciso de algo fácil para  me ajudar com a organização |
+| Jhoel | Algo que me estimula a me manter estudando | Para poder conseguir estudar todo o conteúdo de cada matéria|
+| Kauane | Algo que me avise quando é momento de estudar e quando é momento de fazer pausa. | Para não ficar me dispersando durante o estudo. |
+| Kauane | Avisos sonoros e poder ter comandos de voz. | Sou deficiente visual. |
+| Isabella | Um ambiente sem notificações e com design clean e acolhedor | Para controlar um pouco da ansiedade. |
+| Isabella | poder ver meu progresso de estudos | para saber o que falta estudar e diminuir a pressão. |
 
 ## Requisitos
 
