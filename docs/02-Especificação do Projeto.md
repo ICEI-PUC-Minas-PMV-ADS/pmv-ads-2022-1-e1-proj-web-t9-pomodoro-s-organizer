@@ -24,13 +24,7 @@ As personas levantadas durante o processo de entendimento do problema são apres
 |Thamyres|Sua maior dificuldade foi se adaptar ao EAD, por ter ficado perdida e sem rumo quanto aos estudos. Obteve uma boa nota no ENEM, mas pretende melhorar esse resultado no próximo ano com a utilização de técnicas de estudo.|Acredita que, um site que ajudasse a elaborar um cronograma de estudos e dividir o tempo de acordo com as dificuldades entre as disciplinas, seria de grande ajuda.|
 |Jhoel|Possui dificuldade em conciliar trabalho e estudos e possui poucas horas livres para se dedicar. Não se considera uma pessoa disciplinada o suficiente para fazer um planejamento de estudos, mas também não tem muita facilidade com tecnologia.|Usaria a ferramenta se ela fosse bem intuitiva e se não fosse necessário muitas configurações|
 |Kauane|Sente que fica dispersa por não entender o conteúdo e não possui organização clara dos estudos. Também não encontra grande disponibilidade de aplicativos que disponham de interações para pessoas com deficiência visual.|Apresentou entusiasmo ao saber que a ferramenta dispõe de comandos de voz e avisos sonoros para diferentes momentos do estudo.|
-|Isabella|Sua maior dificuldade foi lidar com a pressão que sentia e ansiedade próxima e durante as provas. Estudou cerca de 4 a 5 horas por dia e conseguiu obter o resultado esperado. Fez uso de uma ferramenta através de um site que a ajudou a montar um cronograma, e acredita que isso influenciou muito no resultado.|Disse que usaria essa ferramenta e que recomendaria bastante para estudantes inexperientes ainda com provas longas, por acreditar muito na eficiência deste tipo de site.|
-
-
-
-
-
-   
+|Isabella|Sua maior dificuldade foi lidar com a pressão que sentia e ansiedade próxima e durante as provas. Estudou cerca de 4 a 5 horas por dia e conseguiu obter o resultado esperado. Fez uso de uma ferramenta através de um site que a ajudou a montar um cronograma, e acredita que isso influenciou muito no resultado.|Disse que usaria essa ferramenta e que recomendaria bastante para estudantes inexperientes ainda com provas longas, por acreditar muito na eficiência deste tipo de site.|   
 
 ## Histórias de Usuários
 
@@ -49,52 +43,49 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | Isabella | Um ambiente sem notificações e com design clean e acolhedor | Para controlar um pouco da ansiedade. |
 | Isabella | poder ver meu progresso de estudos | para saber o que falta estudar e diminuir a pressão. |
 
-## Requisitos
+## Requisitos do Projeto
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+O escopo funcional do projeto é definido por meio dos requisitos funcionais que descrevem as possibilidades interação dos usuários, bem como os requisitos não funcionais que descrevem os aspectos que o sistema deverá apresentar de maneira geral. Estes requisitos são apresentados a seguir.
+
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade em que os mesmos devem ser entregues.
+
+|ID     | Descrição do Requisito  | Prioridade |
+|-------|-----------------------------------------|----|
+| RF-01 | O site deve apresentar uma ferramenta de agenda para incluir e gerenciar as matérias que devem ser estudadas em cada horário | Alta | 
+| RF-02 | O site deve apresentar um timer personalizável em que o usuário possa configurar tempo de estudo e tempo de pausa |  Alta |
+| RF-03 | A agenda deve conter uma barra de status para que o usuário possa controlar o progresso de cada atividade | Alta |
+| RF-04 | O site deve ter um sistema de recompensa para cada tarefa concluída | Média |
+| RF-05 | Se o usuário tentar interromper uma tarefa que falta menos de 20% para conclusão deve ser apresentado uma mensagem de incentivo | Média |
+| RF-06 | Mensagem de parabéns caso o usuário cumpra a meta diária | Média |
+| RF-07 | Deve existir uma ferramenta para mudança do tamanho da fonte tornando a site mais acessível | Média |
+| RF-08 | O site deve apresentar uma função de alto-contraste para torná-lo mais acessível | Baixa |
+| RF-09 | Nos momentos de pausa deve ser apresentado sugestões de qual atividade de descanso o usuário pode fazer | Baixa |
+| RF-10 | Ter API com alguma ferramenta de música para que o usuário possa incluir som de fundo | Baixa |
 
 
 ### Requisitos não Funcionais
 
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender. 
+
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+| RNF-01 | O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku) |Alta | 
+| RNF-02 | O site deverá ter design clean, sem muitas distrações para o usuário |  Alta | 
+| RNF-03 | O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) |Alta |
+| RNF-04 | O site deve atender boas práticas de acessibilidade para tornar o uso de leitores de telas para deficientes visuais conforme o WCAG | Alta |
+| RNF-05 | O site deve ter bom nível de contraste entre os elementos da tela em conformidade conforme o WCAG |  Alta |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|RE-01| A solução apresentada deve ser uma aplicação WEB, ou seja, uma solução que é executada diretamente em um navegador (browser) |
+|RE-02| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 26/06/2022 |
+|RE-03| O aplicativo deve se restringir às tecnologias básicas da Web no Frontend | 
+|RE-04| A equipe não pode subcontratar o desenvolvimento do trabalho |
