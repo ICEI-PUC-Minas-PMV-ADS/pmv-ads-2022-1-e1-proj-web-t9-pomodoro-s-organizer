@@ -11,14 +11,14 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 
 | Ambiente                  | Plataforma | Link de Acesso |
 |---------------------------|------------|----------------|
-|Repositório de código fonte| GitHub     |<a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e1-proj-web-t9-pomodoro-s-organizer.git" target="_blank">Link GitHub</a>|
+|Repositório de código fonte| GitHub     |https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e1-proj-web-t9-pomodoro-s-organizer.git|
 | Documentos do projeto| Google Docs | https://docs.google.com/document/d/1Xlw0FP2C48U8rgUlzFBIsQBvQUKiXIMN/edit#|
 | Projeto de Interface e  Wireframes | Figma | https://www.figma.com/file/OtyJLmxe1kgQ1dLzMMljIc/Untitled?node-id=0%3A1|
 | Gerenciamento do Projeto | Trello | https://trello.com/b/Jj4MNXnv/projeto-front-end|
 
 ## Gestão de código fonte
-Para gestão do código fonte do software desenvolvido pela equipe, o grupo utiliza um processo baseado no Git Flow abordado por Vietro (2015), mostrado na Figura a seguir. Desta forma, todas as manutenções no código são realizadas em branches separados, identificados como Hotfix, Release, Develop e Feature. Uma explicação rápida sobre este processo é apresentada no vídeo <a href="https://www.youtube.com/watch?v=1SXpE08hvGs" target="_blank">"The gitflow workflow - in less than 5 mins"</a>.
-<br>
+Para gestão do código fonte do software desenvolvido pela equipe, o grupo utiliza um processo baseado no Git Flow abordado por Vietro (2015), mostrado na Figura a seguir. Desta forma, todas as manutenções no código são realizadas em branches separados, identificados como Hotfix, Release, Develop e Feature. Uma explicação rápida sobre este processo é apresentada no vídeo ["The gitflow workflow - in less than 5 mins"](https://www.youtube.com/watch?v=1SXpE08hvGs)
+
 
 ![Figura GIT](img/FluxoGit.png)<br>
 Figura 2 - Fluxo de controle do código fonte no repositório git
@@ -46,7 +46,7 @@ A equipe está organizada da seguinte maneira:
 
 Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Trello estruturado com as seguintes listas: 
 
--**Recursos:** esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. O objetivo é permitir a cópia destes templates para agilizar a criação de novos cartões.
+- **Recursos:** esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. O objetivo é permitir a cópia destes templates para agilizar a criação de novos cartões.
 - **Backlog:** recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
 - **To Do:** Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando.
 - **Doing:** Quando uma tarefa tiver sido iniciada, ela é movida para cá.
@@ -58,3 +58,25 @@ O quadro kanban do grupo no Trello está disponível através da URL https://tre
 
 ![Figura Trello](img/trelloDashBoard.png)<br>
 Figura 4 - Tela do kanban utilizada pelo grupo
+
+A tarefas são, ainda, etiquetadas em função da natureza da atividade e seguem o seguinte esquema de cores/categorias:
+ 
+ <table align="center">
+    <tbody>
+        <tr>
+         <td>
+            <ul>
+                <li>Dev -Desenvolvimento</li>
+                <li>Docs - Documentação</li>
+                <li>Infra - Infraestrutura</li>
+                <li>Test - Testes</li>
+                <li>Ger.Proj. - Gerência de Projetos</li>
+            </td>
+            <td>
+                <img src="img/TrelloEtiquetas.png" alt="Etiquetas do Trello">
+            </td>
+        </tr>
+    </tbody>
+ </table>
+
+
