@@ -13,7 +13,7 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 |---------------------------|------------|----------------|
 |Repositório de código fonte| GitHub     |https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e1-proj-web-t9-pomodoro-s-organizer.git|
 | Documentos do projeto| Google Docs | https://docs.google.com/document/d/1Xlw0FP2C48U8rgUlzFBIsQBvQUKiXIMN/edit#|
-| Projeto de Interface e  Wireframes | Figma | https://www.figma.com/file/OtyJLmxe1kgQ1dLzMMljIc/Untitled?node-id=0%3A1|
+| Projeto de Interface e  Wireframes | Figma | https://www.figma.com/file/1p9jKcxxm16ezfSxHefMhE/Untitled?node-id=0%3A1|
 | Gerenciamento do Projeto | Trello | https://trello.com/b/Jj4MNXnv/projeto-front-end|
 
 ## Gestão de código fonte
