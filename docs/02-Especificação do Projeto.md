@@ -1,91 +1,91 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
+<span style="color:red">Pré-requisitos: <a href="01-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição exata do problema e os pontos mais relevantes a serem tratados neste projeto foi consolidada através de reuniões periódicas entre os integrantes do grupo praticando um brainstorming, de trabalho de pesquisa  em reportagens e publicações acadêmicas e através de entrevistas de personas sobre o problema que o grupo propôs.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo de entendimento do problema são apresentadas nas tabelas que se seguem.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+|Nome       | Idade | UF           |Motivação     |
+|-----------|-------|--------------|--------------|
+|Ana Carla  | 20    | Goiás        |ENEM          |
+|Emanuelle  | 18    | Minas Gerais | ENEM         |
+|Thamyres   | 17    | Minas Gerais | ENEM         |
+|Jhoel      | 54    | Minas Gerais | Certificado  |
+|Kauane     | 16    | Minas Gerais | ENEM         |
+|Isabella   | 18    | Minas Gerais | ENEM         |
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+| Persona | Dificuldades | Em relação ao projeto |
+|--------------|----------------|-------------------------|
+| Ana Carla | Afirmou que manter a concentração nos estudos é difícil, apesar de dedicar de 6 a 8 horas por dia para isso. Apesar das dificuldades, conseguiu um resultado satisfatório no ENEM. Disse que sentiu muita falta de alguma ferramenta que a ajudasse na gestão do tempo. | Disse que usaria muito um site, ou até mesmo um App, que a ajudasse a focar no seu tempo de estudo e a guiasse para que não desperdiçasse seu tempo. |
+| Emanuelle |Acredita que o fato de não ter tido uma boa base no Ensino Fundamental e  Ensino Médio influenciou mais do que a dificuldade de organização. Seguindo uma rotina de 6 horas por dia de estudo não atingiu a pontuação desejada. Encontrou ferramentas de gestão de tempo, porém não se adaptou a nenhuma.|Ela acredita que uma ferramenta customizável e de fácil utilização fosse contribuir muito para seus estudos.|
+|Thamyres|Sua maior dificuldade foi se adaptar ao EAD, por ter ficado perdida e sem rumo quanto aos estudos. Obteve uma boa nota no ENEM, mas pretende melhorar esse resultado no próximo ano com a utilização de técnicas de estudo.|Acredita que, um site que ajudasse a elaborar um cronograma de estudos e dividir o tempo de acordo com as dificuldades entre as disciplinas, seria de grande ajuda.|
+|Jhoel|Possui dificuldade em conciliar trabalho e estudos e possui poucas horas livres para se dedicar. Não se considera uma pessoa disciplinada o suficiente para fazer um planejamento de estudos, mas também não tem muita facilidade com tecnologia.|Usaria a ferramenta se ela fosse bem intuitiva e se não fosse necessário muitas configurações|
+|Kauane|Sente que fica dispersa por não entender o conteúdo e não possui organização clara dos estudos. Também não encontra grande disponibilidade de aplicativos que disponham de interações para pessoas com deficiência visual.|Apresentou entusiasmo ao saber que a ferramenta dispõe de comandos de voz e avisos sonoros para diferentes momentos do estudo.|
+|Isabella|Sua maior dificuldade foi lidar com a pressão que sentia e ansiedade próxima e durante as provas. Estudou cerca de 4 a 5 horas por dia e conseguiu obter o resultado esperado. Fez uso de uma ferramenta através de um site que a ajudou a montar um cronograma, e acredita que isso influenciou muito no resultado.|Disse que usaria essa ferramenta e que recomendaria bastante para estudantes inexperientes ainda com provas longas, por acreditar muito na eficiência deste tipo de site.|   
 
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
+|EU COMO...<br>`PERSONA`| ...QUERO/PRECISO ...<br>`FUNCIONALIDADE` |...PARA ...<br>`MOTIVO/VALOR`  |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+| Ana Carla | Poder focar no meu tempo de estudo, sem desvio de atenção. | Para não me distrair durante o estudo e poder cumprir o cronograma que estabelecido. |
+| Ana Carla | Poder ter um guia de quais matérias estudar. | Não desperdiçar tempo estudando matérias erradas. |
+| Thamyres | Poder elaborar um cronograma de estudo que  dividisse o tempo de acordo com as dificuldades entre as disciplinas. | Não ficar perdido sobre qual matéria estudar e dividir o tempo adequadamente. |
+| Emanuelle | poder fazer minha agenda de estudos, de forma rápida e fácil. | Para que eu possa seguir com minha rotina de estudos. |
+| Jhoel | Algo fácil de para organizar meus estudos | Não sou muito disciplinado, preciso de algo fácil para  me ajudar com a organização |
+| Jhoel | Algo que me estimula a me manter estudando | Para poder conseguir estudar todo o conteúdo de cada matéria|
+| Kauane | Algo que me avise quando é momento de estudar e quando é momento de fazer pausa. | Para não ficar me dispersando durante o estudo. |
+| Kauane | Avisos sonoros e poder ter comandos de voz. | Sou deficiente visual. |
+| Isabella | Um ambiente sem notificações e com design clean e acolhedor | Para controlar um pouco da ansiedade. |
+| Isabella | poder ver meu progresso de estudos | para saber o que falta estudar e diminuir a pressão. |
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
+## Requisitos do Projeto
 
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+O escopo funcional do projeto é definido por meio dos requisitos funcionais que descrevem as possibilidades interação dos usuários, bem como os requisitos não funcionais que descrevem os aspectos que o sistema deverá apresentar de maneira geral. Estes requisitos são apresentados a seguir.
 
-## Requisitos
-
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade em que os mesmos devem ser entregues.
+
+|ID     | Descrição do Requisito  | Prioridade |
+|-------|-----------------------------------------|----|
+| RF-01 | O site deve apresentar uma ferramenta de agenda para incluir e gerenciar as matérias que devem ser estudadas em cada horário | Alta | 
+| RF-02 | O site deve apresentar um timer personalizável em que o usuário possa configurar tempo de estudo e tempo de pausa |  Alta |
+| RF-03 | A agenda deve conter uma barra de status para que o usuário possa controlar o progresso de cada atividade | Alta |
+| RF-04 | O site deve ter um sistema de recompensa para cada tarefa concluída | Média |
+| RF-05 | Se o usuário tentar interromper uma tarefa que falta menos de 20% para conclusão deve ser apresentado uma mensagem de incentivo | Média |
+| RF-06 | Mensagem de parabéns caso o usuário cumpra a meta diária | Média |
+| RF-07 | Deve existir uma ferramenta para mudança do tamanho da fonte tornando a site mais acessível | Média |
+| RF-08 | O site deve apresentar uma função de alto-contraste para torná-lo mais acessível | Baixa |
+| RF-09 | Nos momentos de pausa deve ser apresentado sugestões de qual atividade de descanso o usuário pode fazer | Baixa |
+| RF-10 | Ter API com alguma ferramenta de música para que o usuário possa incluir som de fundo | Baixa |
 
 
 ### Requisitos não Funcionais
 
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender. 
+
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+| RNF-01 | O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku) |Alta | 
+| RNF-02 | O site deverá ter design clean, sem muitas distrações para o usuário |  Alta | 
+| RNF-03 | O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) |Alta |
+| RNF-04 | O site deve atender boas práticas de acessibilidade para tornar o uso de leitores de telas para deficientes visuais conforme o WCAG | Alta |
+| RNF-05 | O site deve ter bom nível de contraste entre os elementos da tela em conformidade conforme o WCAG |  Alta |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|RE-01| A solução apresentada deve ser uma aplicação WEB, ou seja, uma solução que é executada diretamente em um navegador (browser) |
+|RE-02| O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data de 26/06/2022 |
+|RE-03| O aplicativo deve se restringir às tecnologias básicas da Web no Frontend | 
+|RE-04| A equipe não pode subcontratar o desenvolvimento do trabalho |
