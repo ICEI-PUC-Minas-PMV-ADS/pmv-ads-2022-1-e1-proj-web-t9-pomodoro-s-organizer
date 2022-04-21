@@ -59,7 +59,6 @@ O quadro kanban do grupo no GitHub está disponível através da URL https://git
 ![Figura Project](img/GitProjectKanbam.PNG)<br>
 Figura 3 - Tela do kanban utilizada pelo grupo
 
-<!---
 A tarefas são, ainda, etiquetadas em função da natureza da atividade e seguem o seguinte esquema de cores/categorias:
  
  <table align="center">
@@ -67,19 +66,20 @@ A tarefas são, ainda, etiquetadas em função da natureza da atividade e seguem
         <tr>
          <td>
             <ul>
+                <li> Desing - Desenvolvimento de Design</li>
                 <li>Dev -Desenvolvimento</li>
                 <li>Docs - Documentação</li>
-                <li>Infra - Infraestrutura</li>
-                <li>Test - Testes</li>
                 <li>Ger.Proj. - Gerência de Projetos</li>
+                <li>Infra - Infraestrutura</li>
+                <li>Test - Testes</li>                
             </td>
             <td>
-                <img src="img/TrelloEtiquetas.png" alt="Etiquetas do Trello">
+                <img src="img/ProjectEtiquetas.PNG" alt="Labels do Project">
             </td>
         </tr>
     </tbody>
  </table>
---->
+
 
 
 
