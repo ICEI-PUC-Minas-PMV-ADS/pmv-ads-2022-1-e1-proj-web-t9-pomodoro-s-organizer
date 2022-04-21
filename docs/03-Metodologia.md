@@ -14,7 +14,7 @@ Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a 
 |Repositório de código fonte| GitHub     |https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e1-proj-web-t9-pomodoro-s-organizer.git|
 | Documentos do projeto| Google Docs | https://docs.google.com/document/d/1Xlw0FP2C48U8rgUlzFBIsQBvQUKiXIMN/edit#|
 | Projeto de Interface e  Wireframes | Figma | https://www.figma.com/file/1p9jKcxxm16ezfSxHefMhE/Untitled?node-id=0%3A1|
-| Gerenciamento do Projeto | Trello | https://trello.com/b/Jj4MNXnv/projeto-front-end|
+| Gerenciamento do Projeto | GitHub Project| https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/20|
 
 ## Gestão de código fonte
 Para gestão do código fonte do software desenvolvido pela equipe, o grupo utiliza um processo baseado no Git Flow abordado por Vietro (2015), mostrado na Figura a seguir. Desta forma, todas as manutenções no código são realizadas em branches separados, identificados como Hotfix, Release, Develop e Feature. Uma explicação rápida sobre este processo é apresentada no vídeo ["The gitflow workflow - in less than 5 mins"](https://www.youtube.com/watch?v=1SXpE08hvGs)
@@ -44,7 +44,7 @@ A equipe está organizada da seguinte maneira:
 - **Equipe de Design:**
    - Isabela Aparecida dos Santos
 
-Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Trello estruturado com as seguintes listas: 
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o GitHub Project estruturado com as seguintes listas: 
 
 - **Recursos:** esta lista mantém template de tarefas recorrentes com as configurações padronizadas que todos devem seguir. O objetivo é permitir a cópia destes templates para agilizar a criação de novos cartões.
 - **Backlog:** recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também devem ser incorporadas a esta lista.
@@ -54,11 +54,12 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 - **Done:** nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontos para ser entregues ao usuário. Não há mais edições ou revisões necessárias, ele está agendado e pronto para a ação.
 - **Locked:** Quando alguma coisa impede a conclusão da tarefa, ela é movida para esta lista juntamente com um comentário sobre o que está travando a tarefa.
 
-O quadro kanban do grupo no Trello está disponível através da URL https://trello.com/b/Jj4MNXnv/projeto-front-end e é apresentado, no estado atual, na Figura 3. A definição desta estrutura se baseou na proposta feita por Littlefield (2016).
+O quadro kanban do grupo no GitHub está disponível através da URL https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/20 e é apresentado, no estado atual, na Figura 3. A definição desta estrutura se baseou na proposta feita por Littlefield (2016).
 
-![Figura Trello](img/trelloDashBoard.png)<br>
-Figura 4 - Tela do kanban utilizada pelo grupo
+![Figura Project](img/GitProjectKanbam.PNG)<br>
+Figura 3 - Tela do kanban utilizada pelo grupo
 
+<!---
 A tarefas são, ainda, etiquetadas em função da natureza da atividade e seguem o seguinte esquema de cores/categorias:
  
  <table align="center">
@@ -78,5 +79,7 @@ A tarefas são, ainda, etiquetadas em função da natureza da atividade e seguem
         </tr>
     </tbody>
  </table>
+--->
+
 
 
