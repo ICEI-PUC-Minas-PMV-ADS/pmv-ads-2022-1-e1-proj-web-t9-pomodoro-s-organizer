@@ -26,24 +26,23 @@ Assim que a primeira versão do sistema estiver disponível, será incluído as 
 
 # Documentação
 
-<ol>
-<li><a href="docs/01-Documentação de Contexto.md"> Documentação de Contexto</a></li>
-<li><a href="docs/02-Especificação do Projeto.md"> Especificação do Projeto</a></li>
-<li><a href="docs/03-Metodologia.md"> Metodologia</a></li>
-<li><a href="docs/04-Projeto de Interface.md"> Projeto de Interface</a></li>
-<li><a href="docs/05-Arquitetura da Solução.md"> Arquitetura da Solução</a></li>  
-<li><a href="docs/06-Template padrão do Site.md"> Template padrão do Site</a></li>
-<li><a href="docs/07-Programação de Funcionalidades.md"> Programação de Funcionalidades</a></li>
-<li><a href="docs/08-Plano de Testes de Software.md"> Plano de Testes de Software</a></li>
-<li><a href="docs/09-Registro de Testes de Software.md"> Registro de Testes de Software</a></li>
-<li><a href="docs/10-Apresentação do Projeto.md"> Apresentação do Projeto</a></li>
-<li><a href="docs/11-Referências.md"> Referências</a></li> 
-</ol>
+1. [Documentação de Contexto](docs/01-Documentação%20de%20Contexto.md)
+2. [Especificação do Projeto](docs/02-Especificação%20do%20Projeto.md)
+3. [Metodologia](docs/03-Metodologia.md)
+4. [Projeto de Interface](docs/04-Projeto%20de%20Interface.md) `em desenvolvimento`
+5. [Arquitetura da Solução](docs/05-Arquitetura%20da%20Solução.md) `em desenvolvimento`
+6. [Template padrão do Site](docs/06-Template%20padrão%20do%20Site.md) `não iniciado`
+7. [Programação de Funcionalidades](docs/07-Programação%20de%20Funcionalidades.md) `não iniciado`
+8. [Plano de Testes de Software](docs/08-Plano%20de%20Testes%20de%20Software.md) `não iniciado`
+9. [Registro de Testes de Software](docs/09-Registro%20de%20Testes%20de%20Software.md) `não iniciado`
+10. [Apresentação do Projeto](docs/10-Apresentação%20do%20Projeto.md) `não iniciado`
+11. [Referências](docs/11-Referências.md) `em desenvolvimento`
 
 # Código
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+* [Código Fonte](src/README.md) `não iniciado`
+
 
 # Apresentação
 
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+* [Apresentação da solução](presentation/README.md) `não iniciado`
