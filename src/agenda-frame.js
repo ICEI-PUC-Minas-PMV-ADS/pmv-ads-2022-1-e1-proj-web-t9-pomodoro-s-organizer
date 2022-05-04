@@ -1,4 +1,6 @@
 var addAt = document.getElementById('btAdd');
+var addConf = document.getElementById('btConf');
+var addCanc = document.getElementById('btCanc');
 
 /*const boxAdd = "<form>	
 		Atividade<input type = "text">
@@ -17,6 +19,19 @@ var addAt = document.getElementById('btAdd');
 addAt.addEventListener('click', 
 	function (){
 		this.hidden = true;
-		document.getElementById('addTable').hidden = false;
-			
+		document.getElementById('addTable').hidden = false;			
 	});
+	
+addConf.addEventListener('click', 
+	function (){		
+		document.getElementById('addTable').hidden = true;
+		addAt.hidden = false;		
+	});
+	
+addCanc.addEventListener('click', 
+	function (){		
+		document.getElementById('addTable').hidden = true;
+		addAt.hidden = false;		
+	});
+	
+	
