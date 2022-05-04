@@ -21,8 +21,8 @@ addConf.addEventListener('click',
 		document.getElementById('addTable').hidden = true;
 		addAt.hidden = false;
 		
-		let inicio = parseFloat(document.getElementById('ativInicio').value)
-		let fim = parseFloat(document.getElementById('ativFim').value)
+		let inicio = document.getElementById('ativInicio').value
+		let fim = document.getElementById('ativFim').value
 		
 		tempItem = {
 		nome:   document.getElementById('ativNome').value,
@@ -48,10 +48,10 @@ addCanc.addEventListener('click',
 /*******Local STORAGE************************************/	
 // JSON com o banco de dados da agenda.	
 var bdAgenda =[
-	{nome: "Teste",
+	/*{nome: "Teste",
 	hrInicio: "",
 	hrFim: "",
 	status: 0, //0 não iniciado, 1 andamento, 2 conclúído
 	progress: 0.75 //percentual de progresso
-	},
+	},*/
 	];
