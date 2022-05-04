@@ -19,19 +19,19 @@
 		<table hidden id = "addTable" class ="table">
 			<tr>
 				<td>
-					<form>	
-						<p>Atividade<input type = "text"></p>
-						<p>Hora Inicio<input type="time"></p>
-						<p>Hora Fim <input type="time"></p>	
+					<form id="formInclusao">	
+						<p>Atividade<input type = "text" id="ativNome" step="2"></p>
+						<p>Hora Inicio<input type="time" id="ativInicio"></p>
+						<p>Hora Fim <input type="time" id="ativFim"></p>	
 					</form>
 				</td>
 			</tr>
 			<tr>
 				<td>
-				<button type="button" id="btConf" class="btn btn-dark"> Confirmar</button>				
+				<button type="reset" id="btConf" class="btn btn-dark"> Confirmar</button>				
 				</td>
 				<td>
-				<button type="button" id="btCanc" class="btn btn-dark"> Cancelar</button>				
+				<button type="reset" id="btCanc" class="btn btn-dark"> Cancelar</button>				
 				</td>			
 			</tr>
 		
