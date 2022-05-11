@@ -31,20 +31,31 @@ addConf.addEventListener('click',
 		document.getElementById('addTable').hidden = true;
 		addAt.hidden = false;
 		
-		let inicio = document.getElementById('ativInicio').value
-		let fim = document.getElementById('ativFim').value
+		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
+		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
+		let hFim = parseInt(document.getElementById('hAtivFim').value);
+		let mFim = parseInt(document.getElementById('mAtivFim').value);
+		//let tInicio =  hInicio * 60 + mInicio; /tempo em minutos
+		//let tFim = hFim * 60 + mFim;	/tempo em ninutos
 		
 		tempItem = {
 		nome:   document.getElementById('ativNome').value,
-		hrInicio:  inicio,
-		hrFim: fim,
+		inicio: {
+			horaInicio:  hInicio,
+			minutoInicio: mInicio,
+			//tempoInicio: tInicio,
+		},
+		fim: {
+			horaFim: hFim,
+			minutoFim: mFim,
+			//tempoFim: tFim,
+		},
 		status: 0,
 		progress: 0,
 		};
 		bdAgenda[bdAgenda.length] = tempItem;
 		alert("Inclusão de dados realizada");
-	
-	
+		document.getElementById("ativNome").value = null;	
 	});
 
 //Ação do Botão Cancelar (cancela a inclusão de dados no formulário)	
