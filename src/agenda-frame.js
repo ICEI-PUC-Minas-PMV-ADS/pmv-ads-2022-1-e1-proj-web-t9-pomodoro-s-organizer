@@ -5,8 +5,18 @@ var addAt = document.getElementById('btAdd');//btn incluir atividade
 var addConf = document.getElementById('btConf');//btn confirmar inclusão
 var addCanc = document.getElementById('btCanc');//btn cancelar inclusão
 var bdAgenda = [];
+//var dataHj = document.getElementById('diaAtual')
+
 /*********************************************************************/
 /*******Funcionalidades dos Botões************************************/
+//Acção para pŕeencher da data atual qdo carregar a página.
+
+window.addEventListener('pageshow', (event) => {
+	hj = new Date;
+	document.getElementById('diaAtual').textContent = `Agenda dia ${hj.getDate()}
+	 / ${hj.getMonth()} / ${hj.getFullYear()}`;
+	 
+});
 
 // Ação do Botão para incluir atividade
 addAt.addEventListener('click', 
@@ -14,7 +24,7 @@ addAt.addEventListener('click',
 		this.hidden = true;
 		document.getElementById('addTable').hidden = false;			
 	});
-
+	
 //Ação do Botão Confirmar (confirma a inclusão de dados no formulário)	
 addConf.addEventListener('click', 
 	function (){		
@@ -32,9 +42,9 @@ addConf.addEventListener('click',
 		progress: 0,
 		};
 		bdAgenda[bdAgenda.length] = tempItem;
-		
-		
-		
+		alert("Inclusão de dados realizada");
+	
+	
 	});
 
 //Ação do Botão Cancelar (cancela a inclusão de dados no formulário)	
@@ -47,7 +57,7 @@ addCanc.addEventListener('click',
 /*********************************************************************/
 /*******Local STORAGE************************************/	
 // JSON com o banco de dados da agenda.	
-var bdAgenda =[
+var bdAgenda =[ //Exemplo:
 	/*{nome: "Teste",
 	hrInicio: "",
 	hrFim: "",
