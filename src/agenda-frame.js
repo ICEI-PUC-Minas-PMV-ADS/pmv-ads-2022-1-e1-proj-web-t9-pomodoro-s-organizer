@@ -14,7 +14,7 @@ var bdAgenda = [];
 window.addEventListener('pageshow', (event) => {
 	hj = new Date;
 	document.getElementById('diaAtual').textContent = `Agenda dia ${hj.getDate()}
-	 / ${hj.getMonth()} / ${hj.getFullYear()}`;
+	 / ${hj.getMonth()+1} / ${hj.getFullYear()}`;
 	 
 });
 
