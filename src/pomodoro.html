@@ -30,7 +30,7 @@ TURMA 09 GRUPO 05
 
 </head>
 
-<body>
+<body  onload="ExibeAgenda()">
 <div class="container-fluid"> <!---Container principal--->
 	<div class="row bg-dark text-white"> <!---- Linha do Cabeçalho--->
 		<table>
@@ -50,10 +50,10 @@ TURMA 09 GRUPO 05
 					  <div class="navbar-nav">
 						<!--- Marcar sua parte no class="nav link active" - lembrar de tirar o "active do  outro"--->  
 						<a class="nav-link" href="#">Home</a>
-						<a class="nav-link active" aria-current="page" href="#">Pomodoro</a>
+						<a class="nav-link active" aria-current="page" href="pomodoro.html">Pomodoro</a>
 						<a class="nav-link" href="#">Mais Infos</a>
 						<a class="nav-link" href="#">Sobre Nós</a>
-						<a class="nav-link" href="#">Logout</a>
+						<a class="nav-link" href="../index.html">Login/Logout</a>
 					   </div>
 					</div>
 				  </div>
@@ -72,40 +72,14 @@ TURMA 09 GRUPO 05
 		
 		<div class = "col-lg-4 bg-light"><!--- Bloco da Direita --->
 		<p><h4 class="text-center" id = "diaAtual">Agenda dia xx/xx/xxx</h4></p>
-				
-		<table class="table">
-		  <thead>
-			<tr>
-			  <th scope="col">#</th>
-			  <th scope="col">Descrição</th>
-			  <th scope="col">Inicio</th>
-			  <th scope="col">Fim</th>
-			</tr>
-		  </thead>
-		  <tbody>
-			<tr>
-			  <th scope="row">1</th>
-			  <td>Portugues</td>
-			  <td>09:00:00</td>
-			  <td>10:00:00</td>
-			</tr>
-			<tr>
-			  <th scope="row">2</th>
-			  <td>Matematica</td>
-			  <td>10:00:00</td>
-			  <td>11:00:00</td>
-			</tr>
-			<tr>
-			  <th scope="row">3</th>
-			  <td>História</td>
-			  <td>11:00:00</td>
-			  <td>11:30:00</td>
-			</tr>
-		  </tbody>
-		</table>
 		
+		<div ID = "tabelaAgenda"> 	
+		<!---aqui será impresso a agenda pelo JS --->	
+		</div>
+		
+		<!--- Menu para inclusão e exclusão de atividades--->
 		<div id="agenda">
-				
+				<!---Menu de inclusão de atividades.--->
 				<button type="button" id="btAdd" class="btn btn-dark"> Adicionar Atividade</button>
 					<div id="addForm">
 					<table hidden id = "addTable" class ="table">
@@ -134,6 +108,18 @@ TURMA 09 GRUPO 05
 									 <option value= 10 >10</option>
 									 <option value= 11 >11</option>
 									 <option value= 12 >12</option>
+									 <option value= 13 >13</option>
+									 <option value= 14 >14</option>
+									 <option value= 15 >15</option>
+									 <option value= 16 >16</option>
+									 <option value= 17 >17</option>
+									 <option value= 18 >18</option>
+									 <option value= 19 >19</option>
+									 <option value= 20 >20</option>
+									 <option value= 21 >21</option>
+									 <option value= 22 >22</option>
+									 <option value= 23 >23</option>
+									 <option value= 24 >24</option>	
 									</select>
 									
 									Minuto Inicio:	
@@ -221,6 +207,18 @@ TURMA 09 GRUPO 05
 									 <option value= 10 >10</option>
 									 <option value= 11 >11</option>
 									 <option value= 12 >12</option>
+									 <option value= 13 >13</option>
+									 <option value= 14 >14</option>
+									 <option value= 15 >15</option>
+									 <option value= 16 >16</option>
+									 <option value= 17 >17</option>
+									 <option value= 18 >18</option>
+									 <option value= 19 >19</option>
+									 <option value= 20 >20</option>
+									 <option value= 21 >21</option>
+									 <option value= 22 >22</option>
+									 <option value= 23 >23</option>
+									 <option value= 24 >24</option>		 
 									</select>
 									
 									Minuto Fim:	
