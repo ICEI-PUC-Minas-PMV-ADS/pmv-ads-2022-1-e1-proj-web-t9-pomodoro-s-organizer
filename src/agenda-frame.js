@@ -6,9 +6,9 @@ var addConf = document.getElementById('btConf');//bt confirmar inclusão
 var addCanc = document.getElementById('btCanc');//bt cancelar inclusão
 var bdAgenda = []; // banco de dados da agenda
 
-
 /*********************************************************************/
 /*******Funcionalidades dos Botões************************************/
+
 //Acção para pŕeencher da data atual qdo carregar a página.
 window.addEventListener('pageshow', (event) => {
 	hj = new Date;
@@ -26,36 +26,14 @@ addAt.addEventListener('click',
 //Ação do Botão Confirmar (confirma a inclusão de dados no formulário)	
 addConf.addEventListener('click', 
 	function (){		
-		document.getElementById('addTable').hidden = true;
-		addAt.hidden = false;
-		
-		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
-		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
-		let hFim = parseInt(document.getElementById('hAtivFim').value);
-		let mFim = parseInt(document.getElementById('mAtivFim').value);
-		//let tInicio =  hInicio * 60 + mInicio; /tempo em minutos
-		//let tFim = hFim * 60 + mFim;	/tempo em ninutos
-		
-		tempItem = {
-		nome:   document.getElementById('ativNome').value,
-		inicio: {
-			hora:  hInicio,
-			minuto: mInicio,
-			//tempoInicio: tInicio,
-		},
-		fim: {
-			hora: hFim,
-			minuto: mFim,
-			//tempoFim: tFim,
-		},
-		status: 0,
-		progress: 0,
-		};
-		bdAgenda[bdAgenda.length] = tempItem;
+		document.getElementById('addTable').hidden = true;//esconde o botão incluir
+		addAt.hidden = false;//exibe a tabela para inclusão	
+		if (dadovazio()){	
+		incluir();//faz a inclusão
 		alert("Inclusão de dados realizada");
 		document.getElementById("ativNome").value = null; // LIMPA O INPUT	
-		ExibeAgenda ();
-		
+		ExibeAgenda ();//atualiza a tabela da agenda.
+		}	
 	});
 
 //Ação do Botão Cancelar (cancela a inclusão de dados no formulário)	
@@ -64,6 +42,9 @@ addCanc.addEventListener('click',
 		document.getElementById('addTable').hidden = true;
 		addAt.hidden = false;		
 	});
+
+/*********************************************************************/
+/*************************FUNÇÕES************************************/
 	
 //Função para exibir tabela da agenda:
 function ExibeAgenda () {
@@ -89,8 +70,8 @@ function ExibeAgenda () {
 		`;//preenche uma linha dizendo que não tem atividade programada
 	} else {
 		
+		//preencher cada linha da tabela com os dados que foram inseridos pelo usuário.
 		for (var i = 0; i < bdAgenda.length; i++){
-			console.log("chegou no FOR");
 			textoHTML +=`
 						<tr>
 							  <th scope="row">${i+1}</th>
@@ -106,3 +87,46 @@ function ExibeAgenda () {
 		
 }//fim da função ExibeAgenda
 
+//função para incluir item
+function incluir (){	
+		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
+		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
+		let hFim = parseInt(document.getElementById('hAtivFim').value);
+		let mFim = parseInt(document.getElementById('mAtivFim').value);
+		let tInicio =  hInicio * 60 + mInicio; //tempo em minutos
+		let tFim = hFim * 60 + mFim;	//tempo em ninutos
+		
+		//cria variável no formato para ser incluído no Bd
+		tempItem = {
+		nome:   document.getElementById('ativNome').value,
+		inicio: {
+			hora:  hInicio,
+			minuto: mInicio,
+			tempo: tInicio,
+		},
+		fim: {
+			hora: hFim,
+			minuto: mFim,
+			tempo: tFim,
+		},
+		status: 0,
+		progress: 0,
+		};		
+		//inclui o item no BD Agenda
+		bdAgenda[bdAgenda.length] = tempItem;			
+}//fim da função incluir
+
+function dadovazio(){
+		let nomeAtivi = document.getElementById('ativNome').value;
+		let hInicio =  document.getElementById('hAtivInicio').value;
+		let mInicio = document.getElementById('mAtivInicio').value;
+		let hFim = document.getElementById('hAtivFim').value;
+		let mFim = document.getElementById('mAtivFim').value;	
+		
+		if (nomeAtivi == "" || hInicio == "-1" ||  mInicio == "-1" || hFim == "-1" || mFim == "-1"){
+			alert("Favor preencher todos os dados");
+			return 0;			
+		} else {
+			return 1;
+			}//fim do else
+}// fim da função dadovazio
