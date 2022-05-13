@@ -1,0 +1,19 @@
+.text-center{
+
+    padding-top: 24px;;
+}
+.square-box{
+    padding-top: 24px;
+    max-width: 600px;
+    max-height: 400px;
+    border-left: 1px solid #333;
+    padding-bottom: 24px;
+}
+span {
+     font-weight: bold;
+}
+.foot-note{
+    font-style: italic;
+    color: grey;
+    text-align: right;
+}
