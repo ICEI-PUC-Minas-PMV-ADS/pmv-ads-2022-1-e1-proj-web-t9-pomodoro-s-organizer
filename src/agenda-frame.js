@@ -116,6 +116,7 @@ function incluir (){
 		bdAgenda[bdAgenda.length] = tempItem;			
 }//fim da função incluir
 
+//função - check dado vazio
 function dadovazio(){
 		let nomeAtivi = document.getElementById('ativNome').value;
 		let hInicio =  document.getElementById('hAtivInicio').value;
@@ -130,3 +131,22 @@ function dadovazio(){
 			return 1;
 			}//fim do else
 }// fim da função dadovazio
+
+//função timer (Protótipo)
+var tempoEmMinutos = 25;
+var expiracao = new  Date(new Date().getTime() + tempoEmMinutos * 60000);
+
+contador = window.setInterval(function(){
+    faltam = expiracao - new Date();
+    if (faltam <= 0){
+        window.clearInerval(contador);
+        console.log("Prazo expirado");
+    }
+    minutos = Math.floor(faltam / 60000);
+    segundos = faltam % 60000;
+    tempoRestante = `${minutos}:${segundos.toString().substring(0,2)}`;
+
+    //abaixo, coloque no lugar de 'tempo' o id do elemento do html que contem o timer
+    document.getElementById('timer').innerHTML = `<h3>${tempoRestante}</h3>`;
+    console.log(tempoRestante);
+}, 1000);
