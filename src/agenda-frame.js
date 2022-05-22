@@ -4,7 +4,14 @@
 var addAt = document.getElementById('btAdd');//bt incluir atividade
 var addConf = document.getElementById('btConf');//bt confirmar inclusão
 var addCanc = document.getElementById('btCanc');//bt cancelar inclusão
-var bdAgenda = []; // banco de dados da agenda
+var bdAgenda = JSON.parse(localStorage.getItem("bdAgenda")); // banco de dados da agenda
+	
+	
+window.onload = function(){
+		if(bdAgenda == null)
+		bdAgenda = [];
+		ExibeAgenda ();
+	};
 
 /*********************************************************************/
 /*******Funcionalidades dos Botões************************************/
@@ -61,6 +68,7 @@ function ExibeAgenda () {
 		  </thead>
 		  <tbody>
 	`; //Preencher o HEADER da Tabela.
+	console.log("bd agenda = "+bdAgenda.length);
 	
 	if (bdAgenda.length == 0){//se não tem atidivada programada	
 		tabela.innerHTML = textoHTML + `
@@ -113,7 +121,8 @@ function incluir (){
 		progress: 0,
 		};		
 		//inclui o item no BD Agenda
-		bdAgenda[bdAgenda.length] = tempItem;			
+		bdAgenda[bdAgenda.length] = tempItem;
+		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
 }//fim da função incluir
 
 //função - check dado vazio
@@ -148,5 +157,5 @@ contador = window.setInterval(function(){
 
     //abaixo, coloque no lugar de 'tempo' o id do elemento do html que contem o timer
     document.getElementById('timer').innerHTML = `<h3>${tempoRestante}</h3>`;
-    console.log(tempoRestante);
+    //console.log(tempoRestante);
 }, 1000);
