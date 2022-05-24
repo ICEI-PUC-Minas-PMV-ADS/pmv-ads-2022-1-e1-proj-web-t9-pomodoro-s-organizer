@@ -97,7 +97,7 @@ TURMA 09 GRUPO 05
 						<tr>
 							<td>
 									
-									<p>Atividade: <input type = "text" id="ativNome" step="2" required></p>									
+									<p>Atividade: <input type = "text" id="ativNome" step="2"  maxlength="30" required onchange = "exibeConfirma()"></p>									
 								
 							</td>													
 						</tr>
@@ -105,7 +105,7 @@ TURMA 09 GRUPO 05
 							<td>
 								
 									<p>Hora Inicio: <!--- <input type="time" id="ativInicio">--->
-									<select name="Hora Inicio" id="hAtivInicio" required>
+									<select name="Hora Inicio" id="hAtivInicio" required onchange = "exibeConfirma()">
 									 <option value= -1>-</option>
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
@@ -135,7 +135,7 @@ TURMA 09 GRUPO 05
 									</select>
 									
 									Minuto Inicio:	
-									<select name="Minuto Inicio" id="mAtivInicio" required>
+									<select name="Minuto Inicio" id="mAtivInicio" required onchange = "exibeConfirma()">
 									 <option value= -1 >-</option>
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
@@ -207,7 +207,7 @@ TURMA 09 GRUPO 05
 							<td>
 								
 									<p>Hora Fim:
-									<select name="Hora Fim" id="hAtivFim" required>
+									<select name="Hora Fim" id="hAtivFim" required onchange = "exibeConfirma()">
 									  <option value= -1 >-</option>		
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
@@ -237,7 +237,7 @@ TURMA 09 GRUPO 05
 									</select>
 									
 									Minuto Fim:	
-									<select name="Minuto Fim" id="mAtivFim" required>
+									<select name="Minuto Fim" id="mAtivFim" required onchange = "exibeConfirma()">
 									  <option value= -1 >-</option>	
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
@@ -306,7 +306,7 @@ TURMA 09 GRUPO 05
 						</tr>
 						<tr>
 							<td>
-							<button type="reset" id="btConf" class="btn btn-dark"> Confirmar</button>				
+							<button type="reset" id="btConf" class="btn btn-dark" disabled> Confirmar</button>				
 							</td>
 							<td>
 							<button type="reset" id="btCanc" class="btn btn-dark"> Cancelar</button>				

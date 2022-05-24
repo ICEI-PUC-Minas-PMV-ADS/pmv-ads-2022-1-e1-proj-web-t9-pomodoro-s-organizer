@@ -5,8 +5,8 @@ var addAt = document.getElementById('btAdd');//bt incluir atividade
 var addConf = document.getElementById('btConf');//bt confirmar inclusão
 var addCanc = document.getElementById('btCanc');//bt cancelar inclusão
 var bdAgenda = JSON.parse(localStorage.getItem("bdAgenda")); // banco de dados da agenda
-	
-	
+
+//ação que trata o bdAgenda e exibe a tabela de atividades no momento do carregamento.	
 window.onload = function(){
 		if(bdAgenda == null)
 		bdAgenda = [];
@@ -27,15 +27,17 @@ window.addEventListener('pageshow', (event) => {
 addAt.addEventListener('click', 
 	function (){
 		this.hidden = true;
-		document.getElementById('addTable').hidden = false;			
-	});
+		document.getElementById('addTable').hidden = false;		
+		exibeConfirma();
+	});	
+	
 	
 //Ação do Botão Confirmar (confirma a inclusão de dados no formulário)	
 addConf.addEventListener('click', 
 	function (){		
 		document.getElementById('addTable').hidden = true;//esconde o botão incluir
 		addAt.hidden = false;//exibe a tabela para inclusão	
-		if (dadovazio()){	
+		if (dadovazio()){//se não existir nenhum dado vazio	
 		incluir();//faz a inclusão
 		alert("Inclusão de dados realizada");
 		document.getElementById("ativNome").value = null; // LIMPA O INPUT	
@@ -47,8 +49,9 @@ addConf.addEventListener('click',
 addCanc.addEventListener('click', 
 	function (){		
 		document.getElementById('addTable').hidden = true;
-		addAt.hidden = false;		
-	});
+		addAt.hidden = false;
+		exibeConfirma();
+	});	
 
 /*********************************************************************/
 /*************************FUNÇÕES************************************/
@@ -68,7 +71,7 @@ function ExibeAgenda () {
 		  </thead>
 		  <tbody>
 	`; //Preencher o HEADER da Tabela.
-	console.log("bd agenda = "+bdAgenda.length);
+	
 	
 	if (bdAgenda.length == 0){//se não tem atidivada programada	
 		tabela.innerHTML = textoHTML + `
@@ -125,13 +128,34 @@ function incluir (){
 		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
 }//fim da função incluir
 
+//função exibe botão de confirmar (só exibe qdo todos os dados estão preenchidos)
+function exibeConfirma(){
+		var nomeAtivi = document.getElementById('ativNome').value;
+		var hInicio =  document.getElementById('hAtivInicio').value;
+		var mInicio = document.getElementById('mAtivInicio').value;
+		var hFim = document.getElementById('hAtivFim').value;
+		var mFim = document.getElementById('mAtivFim').value;	
+		
+		console.log("entrou no exibeConfirma");
+		if (nomeAtivi == "" || hInicio == "-1" || mInicio == "-1" || hFim == "-1" || mFim == "-1"){
+			addConf.disabled = true;		
+			
+		}
+		else {
+			addConf.disabled = false;
+				
+		}
+}//fim da função exibeConfirma
+
+
 //função - check dado vazio
 function dadovazio(){
+		
 		let nomeAtivi = document.getElementById('ativNome').value;
 		let hInicio =  document.getElementById('hAtivInicio').value;
 		let mInicio = document.getElementById('mAtivInicio').value;
 		let hFim = document.getElementById('hAtivFim').value;
-		let mFim = document.getElementById('mAtivFim').value;	
+		let mFim = document.getElementById('mAtivFim').value;
 		
 		if (nomeAtivi == "" || hInicio == "-1" ||  mInicio == "-1" || hFim == "-1" || mFim == "-1"){
 			alert("Favor preencher todos os dados");
@@ -149,7 +173,7 @@ contador = window.setInterval(function(){
     faltam = expiracao - new Date();
     if (faltam <= 0){
         window.clearInerval(contador);
-        console.log("Prazo expirado");
+        //console.log("Prazo expirado");
     }
     minutos = Math.floor(faltam / 60000);
     segundos = faltam % 60000;
