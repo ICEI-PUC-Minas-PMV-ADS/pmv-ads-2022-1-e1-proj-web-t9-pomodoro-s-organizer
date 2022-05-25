@@ -40,7 +40,7 @@ addConf.addEventListener('click',
 		
 		document.getElementById('addTable').hidden = true;//esconde o botão incluir
 		addAt.hidden = false;//exibe a tabela para inclusão	
-		if (dadovazio() && max2h() && mintemp()){//se não existir nenhum erro.
+		if (dadovazio() && maxtemp() && mintemp() && validatemp()){//se não existir nenhum erro.
 			incluir();//faz a inclusão
 			alert("Inclusão de dados realizada");
 			bdTemp = []; //reinicia a arrey temporária.
@@ -97,7 +97,7 @@ function carregaTemp (){//carrega o formulário com os dados temporários guarda
 }
 
 //carrega os dados temporários nos campos do formulário.
-function max2h (){
+function maxtemp (){
 		let nomeAtivi = document.getElementById('ativNome').value;	
 		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
 		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
@@ -126,10 +126,9 @@ function mintemp(){
 		let tInicio =  hInicio * 60 + mInicio; //tempo em minutos
 		let tFim = hFim * 60 + mFim;	//tempo em ninutos
 	
-	if (tFim- tInicio < 30){//atividaed ultrapassa 2h
+	if (tFim- tInicio < 30){//atividaed tem que tempo superia a 30 min
 		alert("Atividade deve ter no mínimo 30 min");
-		gravaTemp();
-		console.log(bdTemp[0]);
+		gravaTemp();		
 		
 		return 0; // retorna zero para falso (ERRO)
 	} else {
@@ -137,7 +136,6 @@ function mintemp(){
 	}
 	
 }// fim da função min temp.
-
 	
 //Função para exibir tabela da agenda:
 function ExibeAgenda () {
@@ -230,6 +228,36 @@ function exibeConfirma(){
 		}
 }//fim da função exibeConfirma
 
+//função valida tempo repetido
+function validatemp(){
+	
+		var nomeAtivi = document.getElementById('ativNome').value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio').value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio').value);
+		var hFim = parseInt(document.getElementById('hAtivFim').value);
+		var mFim = parseInt(document.getElementById('mAtivFim').value);
+		var tInicio =  hInicio * 60 + mInicio; //tempo em minutos
+		var tFim = hFim * 60 + mFim;	//tempo em ninutos
+		
+		var tamanhoBD = bdAgenda.length;
+		
+		if (tamanhoBD == 0){
+			return 1;
+			
+		} else {
+			for (var i = 0; i < tamanhoBD; i++){
+				if( tInicio > bdAgenda[i].inicio.tempo && tInicio < bdAgenda[i].fim.tempo){
+					alert ("O inicio da atividade coincide com outra atividade já programada");
+					return 0;
+				} else if( tFim > bdAgenda[i].inicio.tempo && tFim < bdAgenda[i].fim.tempo){
+					alert ("O Fim da atividade coincide com outra atividade já programada");
+					return 0;
+				} else{
+					return 1;
+				}
+			}			
+		}	
+} // fim da função de validar tempo.
 
 //função - check dado vazio
 function dadovazio(){
