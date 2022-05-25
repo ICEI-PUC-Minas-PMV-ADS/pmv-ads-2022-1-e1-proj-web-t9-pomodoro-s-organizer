@@ -5,6 +5,7 @@ var addAt = document.getElementById('btAdd');//bt incluir atividade
 var addConf = document.getElementById('btConf');//bt confirmar inclusão
 var addCanc = document.getElementById('btCanc');//bt cancelar inclusão
 var bdAgenda = JSON.parse(localStorage.getItem("bdAgenda")); // banco de dados da agenda
+var bdTemp = [];
 
 //ação que trata o bdAgenda e exibe a tabela de atividades no momento do carregamento.	
 window.onload = function(){
@@ -24,37 +25,119 @@ window.addEventListener('pageshow', (event) => {
 });
 
 // Ação do Botão para incluir atividade
-addAt.addEventListener('click', 
+addAt.addEventListener('click',  
 	function (){
 		this.hidden = true;
 		document.getElementById('addTable').hidden = false;		
-		exibeConfirma();
+		carregaTemp(); //carrega dados temporarios nos forms (se tiver).
+		exibeConfirma(); // verificar condições para habilitar botão confirma.
 	});	
 	
 	
 //Ação do Botão Confirmar (confirma a inclusão de dados no formulário)	
 addConf.addEventListener('click', 
 	function (){		
+		
 		document.getElementById('addTable').hidden = true;//esconde o botão incluir
 		addAt.hidden = false;//exibe a tabela para inclusão	
-		if (dadovazio()){//se não existir nenhum dado vazio	
-		incluir();//faz a inclusão
-		alert("Inclusão de dados realizada");
-		document.getElementById("ativNome").value = null; // LIMPA O INPUT	
-		ExibeAgenda ();//atualiza a tabela da agenda.
-		}	
+		if (dadovazio() && max2h() && mintemp()){//se não existir nenhum erro.
+			incluir();//faz a inclusão
+			alert("Inclusão de dados realizada");
+			bdTemp = []; //reinicia a arrey temporária.
+			ExibeAgenda ();//atualiza a tabela da agenda.
+		} else {
+			gravaTemp(); // grava os dados do formulário para reexibição.
+		}			
 	});
 
 //Ação do Botão Cancelar (cancela a inclusão de dados no formulário)	
 addCanc.addEventListener('click', 
-	function (){		
+	function (){
 		document.getElementById('addTable').hidden = true;
 		addAt.hidden = false;
-		exibeConfirma();
+		exibeConfirma();	
 	});	
 
 /*********************************************************************/
 /*************************FUNÇÕES************************************/
+
+//grava os dados do formulário em uma variável temporária.
+function gravaTemp(){
+		var nome = document.getElementById('ativNome').value;	
+		var hIni=  parseInt(document.getElementById('hAtivInicio').value);
+		var mIni = parseInt(document.getElementById('mAtivInicio').value);
+		var hF = parseInt(document.getElementById('hAtivFim').value);
+		var mF= parseInt(document.getElementById('mAtivFim').value);
+				
+		//cria variável no formato para ser incluído no Bd
+		bdTemp = [
+		nome,
+		hIni,
+		mIni,			
+		hF,
+		mF]
+		
+		//Grava os dados temporários do formulário.
+		/*for (var i = 0; i <= 4; i++){
+			console.log(tempItem[i]);
+			bdTemp[i] = tempItem[i];	
+		}*/
+		console.log("entrou no grava temp");
+		console.log(bdTemp.length);
+}
+
+function carregaTemp (){//carrega o formulário com os dados temporários guardado.
+		if (bdTemp.length > 0){
+			document.getElementById('ativNome').value = bdTemp[0];
+			document.getElementById('hAtivInicio').value = bdTemp[1];
+			document.getElementById('mAtivInicio').value = bdTemp[2];
+			document.getElementById('hAtivFim').value = bdTemp[3];
+			document.getElementById('mAtivFim').value = bdTemp[4];
+		}
+}
+
+//carrega os dados temporários nos campos do formulário.
+function max2h (){
+		let nomeAtivi = document.getElementById('ativNome').value;	
+		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
+		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
+		let hFim = parseInt(document.getElementById('hAtivFim').value);
+		let mFim = parseInt(document.getElementById('mAtivFim').value);
+		let tInicio =  hInicio * 60 + mInicio; //tempo em minutos
+		let tFim = hFim * 60 + mFim;	//tempo em ninutos
+	
+	if (tFim- tInicio > 120){//atividaed ultrapassa 2h
+		alert("Atividade não pode exceder 2 horas");
+		gravaTemp();
+		
+		return 0; // retorna zero para falso (ERRO)
+	} else {
+		return 1;
+	}
+	
+}//fim da função max2h
+
+function mintemp(){
+		let nomeAtivi = document.getElementById('ativNome').value;	
+		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
+		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
+		let hFim = parseInt(document.getElementById('hAtivFim').value);
+		let mFim = parseInt(document.getElementById('mAtivFim').value);
+		let tInicio =  hInicio * 60 + mInicio; //tempo em minutos
+		let tFim = hFim * 60 + mFim;	//tempo em ninutos
+	
+	if (tFim- tInicio < 30){//atividaed ultrapassa 2h
+		alert("Atividade deve ter no mínimo 30 min");
+		gravaTemp();
+		console.log(bdTemp[0]);
+		
+		return 0; // retorna zero para falso (ERRO)
+	} else {
+		return 1;
+	}
+	
+}// fim da função min temp.
+
 	
 //Função para exibir tabela da agenda:
 function ExibeAgenda () {
@@ -99,17 +182,18 @@ function ExibeAgenda () {
 }//fim da função ExibeAgenda
 
 //função para incluir item
-function incluir (){	
-		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
-		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
-		let hFim = parseInt(document.getElementById('hAtivFim').value);
-		let mFim = parseInt(document.getElementById('mAtivFim').value);
-		let tInicio =  hInicio * 60 + mInicio; //tempo em minutos
-		let tFim = hFim * 60 + mFim;	//tempo em ninutos
+function incluir (){
+		var nomeAtivi = document.getElementById('ativNome').value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio').value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio').value);
+		var hFim = parseInt(document.getElementById('hAtivFim').value);
+		var mFim = parseInt(document.getElementById('mAtivFim').value);
+		var tInicio =  hInicio * 60 + mInicio; //tempo em minutos
+		var tFim = hFim * 60 + mFim;	//tempo em ninutos
 		
 		//cria variável no formato para ser incluído no Bd
 		tempItem = {
-		nome:   document.getElementById('ativNome').value,
+		nome:   nomeAtivi,
 		inicio: {
 			hora:  hInicio,
 			minuto: mInicio,
@@ -136,7 +220,6 @@ function exibeConfirma(){
 		var hFim = document.getElementById('hAtivFim').value;
 		var mFim = document.getElementById('mAtivFim').value;	
 		
-		console.log("entrou no exibeConfirma");
 		if (nomeAtivi == "" || hInicio == "-1" || mInicio == "-1" || hFim == "-1" || mFim == "-1"){
 			addConf.disabled = true;		
 			
