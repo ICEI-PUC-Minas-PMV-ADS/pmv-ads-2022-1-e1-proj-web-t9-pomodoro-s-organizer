@@ -263,18 +263,22 @@ function validatemp(){
 				if( tInicio > bdAgenda[i].inicio.tempo && tInicio < bdAgenda[i].fim.tempo){
 					alert ("O inicio da atividade coincide com outra atividade já programada");
 					result = false;
+					break;
 					
 				} else if( tFim > bdAgenda[i].inicio.tempo && tFim < bdAgenda[i].fim.tempo){
 					alert ("O Fim da atividade coincide com outra atividade já programada");
 					result = false;
+					break;
 					
 				} else if(bdAgenda[i].inicio.tempo > tInicio && bdAgenda[i].inicio.tempo < tFim) {
 					alert ("Já existe atividade programada neste horário");
 					result = false;
+					break;
 					
 				} else if(bdAgenda[i].fim.tempo > tInicio && bdAgenda[i].fim.tempo < tFim){
 					alert ("Já existe atividade programada neste horário");
-					result = false;	
+					result = false;
+					break;
 					
 				} else {
 					result = true;
@@ -282,7 +286,6 @@ function validatemp(){
 			} // fim do for
 		
 		}
-		
 		return result;		
 } // fim da função de validar tempo.
 
