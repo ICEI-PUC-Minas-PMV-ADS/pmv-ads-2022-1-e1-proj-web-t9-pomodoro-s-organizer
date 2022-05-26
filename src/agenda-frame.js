@@ -55,6 +55,7 @@ addCanc.addEventListener('click',
 	function (){
 		document.getElementById('addTable').hidden = true;
 		addAt.hidden = false;
+		bdTemp = [];
 		exibeConfirma();	
 	});	
 
