@@ -75,15 +75,7 @@ function gravaTemp(){
 		hIni,
 		mIni,			
 		hF,
-		mF]
-		
-		//Grava os dados temporários do formulário.
-		/*for (var i = 0; i <= 4; i++){
-			console.log(tempItem[i]);
-			bdTemp[i] = tempItem[i];	
-		}*/
-		console.log("entrou no grava temp");
-		console.log(bdTemp.length);
+		mF]		
 }
 
 function carregaTemp (){//carrega o formulário com os dados temporários guardado.
@@ -110,9 +102,9 @@ function maxtemp (){
 		alert("Atividade não pode exceder 2 horas");
 		gravaTemp();
 		
-		return 0; // retorna zero para falso (ERRO)
+		return false; // retorna zero para falso (ERRO)
 	} else {
-		return 1;
+		return true;
 	}
 	
 }//fim da função max2h
@@ -130,9 +122,9 @@ function mintemp(){
 		alert("Atividade deve ter no mínimo 30 min");
 		gravaTemp();		
 		
-		return 0; // retorna zero para falso (ERRO)
+		return false; // retorna zero para falso (ERRO)
 	} else {
-		return 1;
+		return true;
 	}
 	
 }// fim da função min temp.
@@ -207,8 +199,27 @@ function incluir (){
 		};		
 		//inclui o item no BD Agenda
 		bdAgenda[bdAgenda.length] = tempItem;
+		ordenar();
 		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
 }//fim da função incluir
+
+//função para ordenar o lista de avtividades (bubble sort).
+function ordenar(){
+	var bdSize = bdAgenda.length;
+	
+	if (bdSize > 0) {		
+		for (var i = 1; i < bdSize; i++){
+			for (var j = 0; j < bdSize - 1; j++){
+				if (bdAgenda[j].inicio.tempo > bdAgenda[j+1].inicio.tempo){
+					var hold = bdAgenda[j];
+					bdAgenda[j] = bdAgenda[j+1];
+					bdAgenda[j+1] = hold;					
+				}
+			}			
+		}	
+	}	
+}// fim da função ordenar.
+
 
 //função exibe botão de confirmar (só exibe qdo todos os dados estão preenchidos)
 function exibeConfirma(){
@@ -241,22 +252,37 @@ function validatemp(){
 		
 		var tamanhoBD = bdAgenda.length;
 		
+		var result = false;
+		
 		if (tamanhoBD == 0){
-			return 1;
+			result = true;
 			
 		} else {
 			for (var i = 0; i < tamanhoBD; i++){
 				if( tInicio > bdAgenda[i].inicio.tempo && tInicio < bdAgenda[i].fim.tempo){
 					alert ("O inicio da atividade coincide com outra atividade já programada");
-					return 0;
+					result = false;
+					
 				} else if( tFim > bdAgenda[i].inicio.tempo && tFim < bdAgenda[i].fim.tempo){
 					alert ("O Fim da atividade coincide com outra atividade já programada");
-					return 0;
-				} else{
-					return 1;
+					result = false;
+					
+				} else if(bdAgenda[i].inicio.tempo > tInicio && bdAgenda[i].inicio.tempo < tFim) {
+					alert ("Já existe atividade programada neste horário");
+					result = false;
+					
+				} else if(bdAgenda[i].fim.tempo > tInicio && bdAgenda[i].fim.tempo < tFim){
+					alert ("Já existe atividade programada neste horário");
+					result = false;	
+					
+				} else {
+					result = true;
 				}
-			}			
-		}	
+			} // fim do for
+		
+		}
+		
+		return result;		
 } // fim da função de validar tempo.
 
 //função - check dado vazio
@@ -270,9 +296,9 @@ function dadovazio(){
 		
 		if (nomeAtivi == "" || hInicio == "-1" ||  mInicio == "-1" || hFim == "-1" || mFim == "-1"){
 			alert("Favor preencher todos os dados");
-			return 0;			
+			return false;			
 		} else {
-			return 1;
+			return true;
 			}//fim do else
 }// fim da função dadovazio
 
