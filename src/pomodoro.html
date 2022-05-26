@@ -27,7 +27,7 @@ TURMA 09 GRUPO 05
 	
 	
 	<!----- Style desta página --->
-
+	
 </head>
 
 <body >
@@ -35,7 +35,7 @@ TURMA 09 GRUPO 05
 	<div class="row bg-dark text-white"> <!---- Linha do Cabeçalho--->
 		<table>
 		<tr>
-			<!--- logo--->
+			<!--- logo--->			
 			<td><img src="../Images/pomodoro.ico" class="figure-img" alt="Logotipo - Gato em forma de tomate" ></td>
 			<td><h1>POMODORO'S ORGRANIZER</h1></td>
 			<!--- Barra de Navegação--->
@@ -97,14 +97,15 @@ TURMA 09 GRUPO 05
 						<tr>
 							<td>
 									
-									<p>Atividade: <input type = "text" id="ativNome" step="2"  maxlength="30" required onchange = "exibeConfirma()"></p>									
+									<p><label for="ativNome">Atividade:</label>
+									<input type = "text" id="ativNome" step="2"  maxlength="30" required onchange = "exibeConfirma()"></p>									
 								
 							</td>													
 						</tr>
 						<tr>
 							<td>
 								
-									<p>Hora Inicio: <!--- <input type="time" id="ativInicio">--->
+									<p><label for="hAtivInicio">Hora Inicio: </label>
 									<select name="Hora Inicio" id="hAtivInicio" required onchange = "exibeConfirma()">
 									 <option value= -1>-</option>
 									 <option value= 0 >0</option>
@@ -134,7 +135,7 @@ TURMA 09 GRUPO 05
 									 <option value= 24 >24</option>	
 									</select>
 									
-									Minuto Inicio:	
+									<label for="mAtivInicio">Minuto Inicio:	</label>
 									<select name="Minuto Inicio" id="mAtivInicio" required onchange = "exibeConfirma()">
 									 <option value= -1 >-</option>
 									 <option value= 0 >0</option>
@@ -206,7 +207,7 @@ TURMA 09 GRUPO 05
 						<tr>
 							<td>
 								
-									<p>Hora Fim:
+									<label for="hAtivFim">Hora Fim: </label>
 									<select name="Hora Fim" id="hAtivFim" required onchange = "exibeConfirma()">
 									  <option value= -1 >-</option>		
 									 <option value= 0 >0</option>
@@ -236,7 +237,7 @@ TURMA 09 GRUPO 05
 									 <option value= 24 >24</option>		 
 									</select>
 									
-									Minuto Fim:	
+									<label for="hAtivFim">Minuto Fim: </label>
 									<select name="Minuto Fim" id="mAtivFim" required onchange = "exibeConfirma()">
 									  <option value= -1 >-</option>	
 									 <option value= 0 >0</option>
