@@ -189,7 +189,7 @@ function ExibeAgenda () {
 											</svg>	
 										</span>
 									
-									<button type="button" class="btn btn-outline-secondary">
+									<button type="button" class="btn btn-outline-secondary" onclick = perExc(${i})>
 										<span id = "btn-exc-${i}" name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
 												<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
@@ -208,11 +208,14 @@ function ExibeAgenda () {
 										</span>
 									</button>
 									
-								</div>
-								
+								</div>								
 							</td>
 						</tr>
-		
+						
+						<tr id = "interation-table-${i}" hidden>
+						
+						</tr>
+							
 						`;						
 		}//fim do for
 		textoHTML +=`</tbody>
@@ -359,6 +362,35 @@ function dadovazio(){
 //função timer (Protótipo)
 var tempoEmMinutos = 25;
 var expiracao = new  Date(new Date().getTime() + tempoEmMinutos * 60000);
+
+//função para exibir pergunta exclusão
+function perExc(element) {
+	var tdBOX = document.getElementById("interation-table-"+element)
+	
+	tdBOX.hidden = false;
+	
+	tdBOX.innerHTML = `
+							<td colspan = "4">
+							
+							<button type="reset" id="btConfExc-${element}" class="btn btn-dark" onclick = "excluir(${element})"> Confirmar Exclusão</button>				
+							
+							
+							<button type="reset" id="btCancExc-${element}" class="btn btn-dark" onclick = "ExibeAgenda ()"> Cancelar</button>				
+						
+							</td>
+						
+						`;
+}
+
+//função para excluir item da agenda.
+function excluir(element){
+	bdAgenda.splice(element, 1);	
+	localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
+	ExibeAgenda ();	
+}
+
+//=================================================================================
+//Relógio temporário
 
 contador = window.setInterval(function(){
     faltam = expiracao - new Date();
