@@ -2,7 +2,7 @@
 /*******Variárives Globais********************************************/
 
 var addAt = document.getElementById('btAdd');//bt incluir atividade
-var addConf = document.getElementById('btConf');//bt confirmar inclusão
+var addConfi = document.getElementById('btConf');//bt confirmar inclusão
 var addCanc = document.getElementById('btCanc');//bt cancelar inclusão
 var bdAgenda = JSON.parse(localStorage.getItem("bdAgenda")); // banco de dados da agenda
 var bdTemp = [];
@@ -29,24 +29,24 @@ addAt.addEventListener('click',
 	function (){
 		this.hidden = true;
 		document.getElementById('addTable').hidden = false;		
-		carregaTemp(); //carrega dados temporarios nos forms (se tiver).
-		exibeConfirma(); // verificar condições para habilitar botão confirma.
+		carregaTemp('i'); //carrega dados temporarios nos forms (se tiver).
+		exibeConfirma('i'); // verificar condições para habilitar botão confirma.
 	});	
 	
 	
 //Ação do Botão Confirmar (confirma a inclusão de dados no formulário)	
-addConf.addEventListener('click', 
+addConfi.addEventListener('click', 
 	function (){		
-		
+		// 'i' como parâmetro se refere ao botão de inclusão.
 		document.getElementById('addTable').hidden = true;//esconde o botão incluir
 		addAt.hidden = false;//exibe a tabela para inclusão	
-		if (dadovazio() && maxtemp() && mintemp() && validatemp()){//se não existir nenhum erro.
-			incluir();//faz a inclusão
+		if (dadovazio('i') && maxtemp('i') && mintemp('i') && validatemp('i')){//se não existir nenhum erro.
+			incluir('i');//faz a inclusão
 			alert("Inclusão de dados realizada");
 			bdTemp = []; //reinicia a arrey temporária.
 			ExibeAgenda ();//atualiza a tabela da agenda.
 		} else {
-			gravaTemp(); // grava os dados do formulário para reexibição.
+			gravaTemp('i'); // grava os dados do formulário para reexibição.
 		}			
 	});
 
@@ -56,52 +56,54 @@ addCanc.addEventListener('click',
 		document.getElementById('addTable').hidden = true;
 		addAt.hidden = false;
 		bdTemp = [];
-		exibeConfirma();	
+		exibeConfirma('i');	
 	});	
 
 /*********************************************************************/
 /*************************FUNÇÕES************************************/
 
 //grava os dados do formulário em uma variável temporária.
-function gravaTemp(){
-		var nome = document.getElementById('ativNome').value;	
-		var hIni=  parseInt(document.getElementById('hAtivInicio').value);
-		var mIni = parseInt(document.getElementById('mAtivInicio').value);
-		var hF = parseInt(document.getElementById('hAtivFim').value);
-		var mF= parseInt(document.getElementById('mAtivFim').value);
+function gravaTemp(indice){
+		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
+		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
+		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
 				
 		//cria variável no formato para ser incluído no Bd
 		bdTemp = [
-		nome,
-		hIni,
-		mIni,			
-		hF,
-		mF]		
+		nomeAtivi,
+		hInicio,
+		mInicio,			
+		hFim,
+		mFim]		
 }
 
-function carregaTemp (){//carrega o formulário com os dados temporários guardado.
+//carrega o formulário com os dados temporários guardado.
+function carregaTemp(indice){
 		if (bdTemp.length > 0){
-			document.getElementById('ativNome').value = bdTemp[0];
-			document.getElementById('hAtivInicio').value = bdTemp[1];
-			document.getElementById('mAtivInicio').value = bdTemp[2];
-			document.getElementById('hAtivFim').value = bdTemp[3];
-			document.getElementById('mAtivFim').value = bdTemp[4];
+			
+			document.getElementById('ativNome-'+indice).value = bdTemp[0];
+			document.getElementById('hAtivInicio-'+indice).value = bdTemp[1];
+			document.getElementById('mAtivInicio-'+indice).value = bdTemp[2];
+			document.getElementById('hAtivFim-'+indice).value = bdTemp[3];
+			document.getElementById('mAtivFim-'+indice).value = bdTemp[4];
 		}
 }
 
-//carrega os dados temporários nos campos do formulário.
-function maxtemp (){
-		let nomeAtivi = document.getElementById('ativNome').value;	
-		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
-		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
-		let hFim = parseInt(document.getElementById('hAtivFim').value);
-		let mFim = parseInt(document.getElementById('mAtivFim').value);
-		let tInicio =  hInicio * 60 + mInicio; //tempo em minutos
-		let tFim = hFim * 60 + mFim;	//tempo em ninutos
+//verifica se atividade não excede o tempo máximo.
+function maxtemp (indice){
+		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
+		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
+		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
+		var tInicio =  hInicio * 60 + mInicio; //tempo em minutos
+		var tFim = hFim * 60 + mFim;	//tempo em ninutos
 	
 	if (tFim- tInicio > 120){//atividaed ultrapassa 2h
 		alert("Atividade não pode exceder 2 horas");
-		gravaTemp();
+		gravaTemp(indice);
 		
 		return false; // retorna zero para falso (ERRO)
 	} else {
@@ -110,18 +112,19 @@ function maxtemp (){
 	
 }//fim da função max2h
 
-function mintemp(){
-		let nomeAtivi = document.getElementById('ativNome').value;	
-		let hInicio =  parseInt(document.getElementById('hAtivInicio').value);
-		let mInicio = parseInt(document.getElementById('mAtivInicio').value);
-		let hFim = parseInt(document.getElementById('hAtivFim').value);
-		let mFim = parseInt(document.getElementById('mAtivFim').value);
-		let tInicio =  hInicio * 60 + mInicio; //tempo em minutos
-		let tFim = hFim * 60 + mFim;	//tempo em ninutos
+//verifica se atividade não não é menor que o tempo mínimo.
+function mintemp(indice){
+		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
+		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
+		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
+		var tInicio =  hInicio * 60 + mInicio; //tempo em minutos
+		var tFim = hFim * 60 + mFim;	//tempo em ninutos
 	
 	if (tFim- tInicio < 30){//atividaed tem que tempo superia a 30 min
 		alert("Atividade deve ter no mínimo 30 min");
-		gravaTemp();		
+		gravaTemp(indice);		
 		
 		return false; // retorna zero para falso (ERRO)
 	} else {
@@ -161,12 +164,12 @@ function ExibeAgenda () {
 		for (var i = 0; i < bdAgenda.length; i++){
 			textoHTML +=`
 						<tr>
-							  <th scope="row" rowspan = "2" class="align-middle">${i+1}</br>
-							  </th>
+							<th scope="row" rowspan = "2" class="align-middle">${i+1}</br>
+							 
 							  <td class="align-middle"><b>${bdAgenda[i].nome}</b></td>
 							  <td>${new Intl.NumberFormat('en-IN', { minimumIntegerDigits: 2 }).format(bdAgenda[i].inicio.hora) } : ${new Intl.NumberFormat('en-IN', { minimumIntegerDigits: 2 }).format(bdAgenda[i].inicio.minuto)}</td>
 							  <td>${new Intl.NumberFormat('en-IN', { minimumIntegerDigits: 2 }).format(bdAgenda[i].fim.hora) } : ${new Intl.NumberFormat('en-IN', { minimumIntegerDigits: 2 }).format(bdAgenda[i].fim.minuto)}</td>
-							  
+							 </th>
 						</tr>
 						<tr>
 							
@@ -183,27 +186,24 @@ function ExibeAgenda () {
 								<div class = "btn-group">
 									<button type="button" class="btn btn-outline-secondary">
 										<span id = "btn-play-${i}" name = "${i}">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
-												<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-												<path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-											</svg>	
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+												<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+											</svg>
 										</span>
 									
-									<button type="button" class="btn btn-outline-secondary" onclick = perExc(${i})>
+									<button type="button" class="btn btn-outline-secondary" onclick = frameExc(${i})>
 										<span id = "btn-exc-${i}" name = "${i}">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-												<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
-												<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+											  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
 											</svg>
-										 </span>
+										</span>
 									</button>
 									
 										
-									<button type="button" class="btn btn-outline-secondary">
+									<button type="button" class="btn btn-outline-secondary" onclick = altFrame(${i})>
 										<span id = "btn-alt-${i}" name = "${i}">
-											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
-												path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
-												<path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+											  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
 											</svg>
 										</span>
 									</button>
@@ -226,12 +226,12 @@ function ExibeAgenda () {
 }//fim da função ExibeAgenda
 
 //função para incluir item
-function incluir (){
-		var nomeAtivi = document.getElementById('ativNome').value;	
-		var hInicio =  parseInt(document.getElementById('hAtivInicio').value);
-		var mInicio = parseInt(document.getElementById('mAtivInicio').value);
-		var hFim = parseInt(document.getElementById('hAtivFim').value);
-		var mFim = parseInt(document.getElementById('mAtivFim').value);
+function incluir (indice){
+		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
+		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
+		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
 		var tInicio =  hInicio * 60 + mInicio; //tempo em minutos
 		var tFim = hFim * 60 + mFim;	//tempo em ninutos
 		
@@ -276,31 +276,31 @@ function ordenar(){
 
 
 //função exibe botão de confirmar (só exibe qdo todos os dados estão preenchidos)
-function exibeConfirma(){
-		var nomeAtivi = document.getElementById('ativNome').value;
-		var hInicio =  document.getElementById('hAtivInicio').value;
-		var mInicio = document.getElementById('mAtivInicio').value;
-		var hFim = document.getElementById('hAtivFim').value;
-		var mFim = document.getElementById('mAtivFim').value;	
+function exibeConfirma(indice){
+		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
+		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
+		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
 		
 		if (nomeAtivi == "" || hInicio == "-1" || mInicio == "-1" || hFim == "-1" || mFim == "-1"){
-			addConf.disabled = true;		
+			eval("addConf"+indice).disabled = true;		
 			
 		}
 		else {
-			addConf.disabled = false;
+			eval("addConf"+indice).disabled = false;
 				
 		}
 }//fim da função exibeConfirma
 
 //função valida tempo repetido
-function validatemp(){
+function validatemp(indice){
 	
-		var nomeAtivi = document.getElementById('ativNome').value;	
-		var hInicio =  parseInt(document.getElementById('hAtivInicio').value);
-		var mInicio = parseInt(document.getElementById('mAtivInicio').value);
-		var hFim = parseInt(document.getElementById('hAtivFim').value);
-		var mFim = parseInt(document.getElementById('mAtivFim').value);
+		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
+		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
+		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
 		var tInicio =  hInicio * 60 + mInicio; //tempo em minutos
 		var tFim = hFim * 60 + mFim;	//tempo em ninutos
 		
@@ -343,13 +343,13 @@ function validatemp(){
 } // fim da função de validar tempo.
 
 //função - check dado vazio
-function dadovazio(){
+function dadovazio(indice){
 		
-		let nomeAtivi = document.getElementById('ativNome').value;
-		let hInicio =  document.getElementById('hAtivInicio').value;
-		let mInicio = document.getElementById('mAtivInicio').value;
-		let hFim = document.getElementById('hAtivFim').value;
-		let mFim = document.getElementById('mAtivFim').value;
+		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
+		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
+		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
+		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
+		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
 		
 		if (nomeAtivi == "" || hInicio == "-1" ||  mInicio == "-1" || hFim == "-1" || mFim == "-1"){
 			alert("Favor preencher todos os dados");
@@ -359,13 +359,9 @@ function dadovazio(){
 			}//fim do else
 }// fim da função dadovazio
 
-//função timer (Protótipo)
-var tempoEmMinutos = 25;
-var expiracao = new  Date(new Date().getTime() + tempoEmMinutos * 60000);
-
-//função para exibir pergunta exclusão
-function perExc(element) {
-	var tdBOX = document.getElementById("interation-table-"+element)
+//função para exibir frame para exclusão
+function frameExc(element) {
+	var tdBOX = document.getElementById("interation-table-"+element);
 	
 	tdBOX.hidden = false;
 	
@@ -373,8 +369,6 @@ function perExc(element) {
 							<td colspan = "4">
 							
 							<button type="reset" id="btConfExc-${element}" class="btn btn-dark" onclick = "excluir(${element})"> Confirmar Exclusão</button>				
-							
-							
 							<button type="reset" id="btCancExc-${element}" class="btn btn-dark" onclick = "ExibeAgenda ()"> Cancelar</button>				
 						
 							</td>
@@ -389,8 +383,233 @@ function excluir(element){
 	ExibeAgenda ();	
 }
 
+//função para exibir frame de alteração
+function altFrame(indice) {
+
+	var tdBOX = document.getElementById("interation-table-"+indice);
+	
+	tdBOX.hidden = false;
+	
+	tdBOX.innerHTML = `
+				<td colspan = "4">
+					
+					<p><label for="ativNome-${indice}">Atividade:</label>
+					<input type = "text" id="ativNome-${indice}" step="2"  maxlength="30" required onchange = "exibeConfirma(${indice})"></p>									
+				
+			
+				
+					<p><label for="hAtivInicio-${indice}">Hora Inicio: </label>
+					<select name="Hora Inicio" id="hAtivInicio-${indice}" required onchange = "exibeConfirma(${indice})">
+					 <option value= -1>-</option>
+					 <option value= 0 >0</option>
+					 <option value= 1 >1</option>
+					 <option value= 2 >2</option>
+					 <option value= 3 >3</option>
+					 <option value= 4 >4</option>
+					 <option value= 5 >5</option>
+					 <option value= 6 >6</option>
+					 <option value= 7 >7</option>
+					 <option value= 8 >8</option>
+					 <option value= 9 >9</option>
+					 <option value= 10 >10</option>
+					 <option value= 11 >11</option>
+					 <option value= 12 >12</option>
+					 <option value= 13 >13</option>
+					 <option value= 14 >14</option>
+					 <option value= 15 >15</option>
+					 <option value= 16 >16</option>
+					 <option value= 17 >17</option>
+					 <option value= 18 >18</option>
+					 <option value= 19 >19</option>
+					 <option value= 20 >20</option>
+					 <option value= 21 >21</option>
+					 <option value= 22 >22</option>
+					 <option value= 23 >23</option>
+					 <option value= 24 >24</option>	
+					</select>
+					
+					<label for="mAtivInicio-${indice}">Minuto Inicio:	</label>
+					<select name="Minuto Inicio" id="mAtivInicio-${indice}" required onchange = "exibeConfirma(${indice})">
+					 <option value= -1 >-</option>
+					 <option value= 0 >0</option>
+					 <option value= 1 >1</option>
+					 <option value= 2 >2</option>
+					 <option value= 3 >3</option>
+					 <option value= 4 >4</option>
+					 <option value= 5 >5</option>
+					 <option value= 6 >6</option>
+					 <option value= 7 >7</option>
+					 <option value= 8 >8</option>
+					 <option value= 9 >9</option>
+					 <option value= 10 >10</option>
+					 <option value= 11 >11</option>
+					 <option value= 12 >12</option>									 
+					 <option value= 13 >13</option>
+					 <option value= 14 >14</option>
+					 <option value= 15 >15</option>
+					 <option value= 16 >16</option>
+					 <option value= 17 >17</option>
+					 <option value= 18 >18</option>
+					 <option value= 19 >19</option>
+					 <option value= 20 >20</option>
+					 <option value= 21 >21</option>
+					 <option value= 22 >22</option>
+					 <option value= 23 >23</option>
+					 <option value= 24 >24</option>
+					 <option value= 25 >25</option>
+					 <option value= 26 >26</option>
+					 <option value= 27 >27</option>
+					 <option value= 28 >28</option>
+					 <option value= 29 >29</option>
+					 <option value= 30 >30</option>
+					 <option value= 31 >31</option>
+					 <option value= 32 >32</option>
+					 <option value= 33 >33</option>
+					 <option value= 34 >34</option>
+					 <option value= 35 >35</option>
+					 <option value= 36 >36</option>
+					 <option value= 37 >37</option>
+					 <option value= 38 >38</option>
+					 <option value= 39 >39</option>
+					 <option value= 40 >40</option>
+					 <option value= 41 >41</option>
+					 <option value= 42 >42</option>
+					 <option value= 43 >43</option>
+					 <option value= 44 >44</option>
+					 <option value= 45 >45</option>
+					 <option value= 46 >46</option>
+					 <option value= 47 >47</option>
+					 <option value= 48 >48</option>
+					 <option value= 49 >49</option>
+					 <option value= 50 >50</option>
+					 <option value= 51 >51</option>
+					 <option value= 52 >52</option>
+					 <option value= 53 >53</option>
+					 <option value= 54 >54</option>
+					 <option value= 55 >55</option>
+					 <option value= 56 >56</option>
+					 <option value= 57 >57</option>
+					 <option value= 58 >58</option>
+					 <option value= 59 >59</option>
+					</select>																	
+					</p>
+				
+	
+				
+					<label for="hAtivFim-${indice}">Hora Fim: </label>
+					<select name="Hora Fim" id="hAtivFim-${indice}" required onchange = "exibeConfirma(${indice})">
+					  <option value= -1 >-</option>		
+					 <option value= 0 >0</option>
+					 <option value= 1 >1</option>
+					 <option value= 2 >2</option>
+					 <option value= 3 >3</option>
+					 <option value= 4 >4</option>
+					 <option value= 5 >5</option>
+					 <option value= 6 >6</option>
+					 <option value= 7 >7</option>
+					 <option value= 8 >8</option>
+					 <option value= 9 >9</option>
+					 <option value= 10 >10</option>
+					 <option value= 11 >11</option>
+					 <option value= 12 >12</option>
+					 <option value= 13 >13</option>
+					 <option value= 14 >14</option>
+					 <option value= 15 >15</option>
+					 <option value= 16 >16</option>
+					 <option value= 17 >17</option>
+					 <option value= 18 >18</option>
+					 <option value= 19 >19</option>
+					 <option value= 20 >20</option>
+					 <option value= 21 >21</option>
+					 <option value= 22 >22</option>
+					 <option value= 23 >23</option>
+					 <option value= 24 >24</option>		 
+					</select>
+					
+					<label for="mAtivFim-${indice}">Minuto Fim: </label>
+					<select name="Minuto Fim" id="mAtivFim-${indice}" required onchange = "exibeConfirma(${indice})">
+					  <option value= -1 >-</option>	
+					 <option value= 0 >0</option>
+					 <option value= 1 >1</option>
+					 <option value= 2 >2</option>
+					 <option value= 3 >3</option>
+					 <option value= 4 >4</option>
+					 <option value= 5 >5</option>
+					 <option value= 6 >6</option>
+					 <option value= 7 >7</option>
+					 <option value= 8 >8</option>
+					 <option value= 9 >9</option>
+					 <option value= 10 >10</option>
+					 <option value= 11 >11</option>
+					 <option value= 12 >12</option>									 
+					 <option value= 13 >13</option>
+					 <option value= 14 >14</option>
+					 <option value= 15 >15</option>
+					 <option value= 16 >16</option>
+					 <option value= 17 >17</option>
+					 <option value= 18 >18</option>
+					 <option value= 19 >19</option>
+					 <option value= 20 >20</option>
+					 <option value= 21 >21</option>
+					 <option value= 22 >22</option>
+					 <option value= 23 >23</option>
+					 <option value= 24 >24</option>
+					 <option value= 25 >25</option>
+					 <option value= 26 >26</option>
+					 <option value= 27 >27</option>
+					 <option value= 28 >28</option>
+					 <option value= 29 >29</option>
+					 <option value= 30 >30</option>
+					 <option value= 31 >31</option>
+					 <option value= 32 >32</option>
+					 <option value= 33 >33</option>
+					 <option value= 34 >34</option>
+					 <option value= 35 >35</option>
+					 <option value= 36 >36</option>
+					 <option value= 37 >37</option>
+					 <option value= 38 >38</option>
+					 <option value= 39 >39</option>
+					 <option value= 40 >40</option>
+					 <option value= 41 >41</option>
+					 <option value= 42 >42</option>
+					 <option value= 43 >43</option>
+					 <option value= 44 >44</option>
+					 <option value= 45 >45</option>
+					 <option value= 46 >46</option>
+					 <option value= 47 >47</option>
+					 <option value= 48 >48</option>
+					 <option value= 49 >49</option>
+					 <option value= 50 >50</option>
+					 <option value= 51 >51</option>
+					 <option value= 52 >52</option>
+					 <option value= 53 >53</option>
+					 <option value= 54 >54</option>
+					 <option value= 55 >55</option>
+					 <option value= 56 >56</option>
+					 <option value= 57 >57</option>
+					 <option value= 58 >58</option>
+					 <option value= 59 >59</option>
+					</select>																	
+					</p>
+		
+					<button type="reset" id="btConf" class="btn btn-dark" disabled> Confirmar</button>				
+					
+					<button type="reset" id="btCanc" class="btn btn-dark"> Cancelar</button>				
+					</form>
+				
+				</td>						
+						`;
+}
+
+
+
 //=================================================================================
 //Relógio temporário
+
+//função timer (Protótipo)
+var tempoEmMinutos = 25;
+var expiracao = new  Date(new Date().getTime() + tempoEmMinutos * 60000);
+
 
 contador = window.setInterval(function(){
     faltam = expiracao - new Date();

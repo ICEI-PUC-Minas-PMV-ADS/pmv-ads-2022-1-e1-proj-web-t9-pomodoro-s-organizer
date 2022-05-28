@@ -95,18 +95,18 @@ TURMA 09 GRUPO 05
 					<table hidden id = "addTable" class ="table">
 						<form>	
 						<tr>
-							<td>
+							<td colspan = "4">
 									
-									<p><label for="ativNome">Atividade:</label>
-									<input type = "text" id="ativNome" step="2"  maxlength="30" required onchange = "exibeConfirma()"></p>									
+									<p><label for="ativNome-i">Atividade:</label>
+									<input type = "text" id="ativNome-i" step="2"  maxlength="30" required onchange = "exibeConfirma('i')"></p>									
 								
 							</td>													
 						</tr>
 						<tr>
-							<td>
+							<td colspan = "4">
 								
-									<p><label for="hAtivInicio">Hora Inicio: </label>
-									<select name="Hora Inicio" id="hAtivInicio" required onchange = "exibeConfirma()">
+									<p><label for="hAtivInicio-i">Hora Inicio: </label>
+									<select name="Hora Inicio" id="hAtivInicio-i" required onchange = "exibeConfirma('i')">
 									 <option value= -1>-</option>
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
@@ -135,8 +135,8 @@ TURMA 09 GRUPO 05
 									 <option value= 24 >24</option>	
 									</select>
 									
-									<label for="mAtivInicio">Minuto Inicio:	</label>
-									<select name="Minuto Inicio" id="mAtivInicio" required onchange = "exibeConfirma()">
+									<label for="mAtivInicio-i">Minuto Inicio:	</label>
+									<select name="Minuto Inicio" id="mAtivInicio-i" required onchange = "exibeConfirma('i')">
 									 <option value= -1 >-</option>
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
@@ -205,10 +205,10 @@ TURMA 09 GRUPO 05
 						</tr>
 						
 						<tr>
-							<td>
+							<td colspan = "4">
 								
-									<label for="hAtivFim">Hora Fim: </label>
-									<select name="Hora Fim" id="hAtivFim" required onchange = "exibeConfirma()">
+									<label for="hAtivFim-i">Hora Fim: </label>
+									<select name="Hora Fim" id="hAtivFim-i" required onchange = "exibeConfirma('i')">
 									  <option value= -1 >-</option>		
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
@@ -237,8 +237,8 @@ TURMA 09 GRUPO 05
 									 <option value= 24 >24</option>		 
 									</select>
 									
-									<label for="hAtivFim">Minuto Fim: </label>
-									<select name="Minuto Fim" id="mAtivFim" required onchange = "exibeConfirma()">
+									<label for="mAtivFim-i">Minuto Fim: </label>
+									<select name="Minuto Fim" id="mAtivFim-i" required onchange = "exibeConfirma('i')">
 									  <option value= -1 >-</option>	
 									 <option value= 0 >0</option>
 									 <option value= 1 >1</option>
