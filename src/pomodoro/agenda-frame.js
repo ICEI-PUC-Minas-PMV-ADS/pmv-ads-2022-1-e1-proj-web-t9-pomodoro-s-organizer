@@ -197,7 +197,7 @@ function ExibeAgenda() {
 							
 								<form>
 														
-								 <input type="range" id = "statusbar${i}" name = "${i}" min = "0" max = "100" step = "1" value = "${bdAgenda[i].progress}">
+								 <input type="range" id = "statusbar${i}" name = "${i}" min = "0" max = "100" step = "1" value = "${bdAgenda[i].progress}" oninput = "frameRange(${i})">
 								</form>
 							
 							</td>
@@ -389,7 +389,7 @@ function frameExc(element) {
 							<td colspan = "4">
 							
 							<button type="reset" id="btConfExc-${element}" class="btn btn-secondary" onclick = "excluir(${element})"> Confirmar Exclusão</button>				
-							<button type="reset" id="btCancExc-${element}" class="btn btn-secondary" onclick = "ExibeAgenda ()"> Cancelar</button>				
+							<button type="reset" id="btCancExc-${element}" class="btn btn-secondary" onclick = "cancAlt(${element})"> Cancelar</button>				
 						
 							</td>
 						
@@ -621,9 +621,10 @@ function altFrame(indice) {
 						`;
 		gravaTempBD(indice);				
 		carregaTemp(indice);
-		//exibeConfirma(indice);
+		bdTemp = [];
 }
 
+//função para gravar alteração.
 function altera(indice){
 	var altBD =[];
 	
@@ -641,7 +642,7 @@ function altera(indice){
 		incluir(indice,bdAgenda);//faz a inclusão dos dados alterados.
 		alert("Inclusão de dados realizada");
 		ordenar(bdAgenda); // ordena		
-		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava
+		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava no local storage
 		bdTemp = []; //reinicia a arrey temporária.
 		tdBOX.innerHTML = "";
 	} else{
@@ -652,11 +653,44 @@ function altera(indice){
 	ExibeAgenda();	
 }
 
+//função para os botões cancelar.
 function cancAlt(indice){
 	var tdBOX = document.getElementById("interation-table-"+indice);
 	tdBOX.innerHTML = "";
 	bdTemp = [];
-	ExibeAgenda();	
+	tdBOX.hidden = true;
+}
+
+//exibir frame de interação na mudança do range.
+function frameRange(indice){
+
+	var tdBOX = document.getElementById("interation-table-"+indice);
+	
+	tdBOX.hidden = false;
+	
+	tdBOX.innerHTML = `
+		<td colspan = "4">
+			<button type="reset" id="btConfRange-${indice}" class="btn btn-secondary" onclick = "mudaRange(${indice}, bdAgenda)">Gravar progresso</button>				
+			<button type="reset" id="btCancRange-${indice}" class="btn btn-secondary" onclick = "cancRange(${indice}, bdAgenda)"> Cancelar</button>
+		</td>						
+						`;	
+}
+
+//grava qdo o usuário mudar o range na agenda
+function mudaRange(indice, bdAgenda){
+	var tdBOX = document.getElementById("interation-table-"+indice);
+	var newrange = document.getElementById("statusbar"+indice).value;
+	
+	bdAgenda[indice].progress = newrange;
+	localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava no local storage
+	tdBOX.innerHTML = "";
+	tdBOX.hidden = true;
+}
+
+//cancela a mudança do range e carrega valor original.
+function cancRange (indice, bdAgenda){
+	document.getElementById("statusbar"+indice).value = bdAgenda[indice].progress;	
+	cancAlt(indice);
 }
 
 //=================================================================================
