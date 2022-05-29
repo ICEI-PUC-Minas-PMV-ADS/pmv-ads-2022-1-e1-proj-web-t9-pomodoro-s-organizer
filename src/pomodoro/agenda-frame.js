@@ -629,7 +629,7 @@ function altera(indice){
 	
 	//faz uma cópía do banco de dados
 	for (var i = 0; i < bdAgenda.length; i++){
-		altBD[i] = bdAgenda[i]	
+		altBD[i] = bdAgenda[i];
 	}
 	
 	var altEle = altBD.splice(indice, 1);
@@ -643,10 +643,10 @@ function altera(indice){
 		ordenar(bdAgenda); // ordena		
 		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava
 		bdTemp = []; //reinicia a arrey temporária.
-		tdBOX.innerHTML = ""
+		tdBOX.innerHTML = "";
 	} else{
 		bdTemp = [];
-		tdBOX.innerHTML = ""
+		tdBOX.innerHTML = "";
 	}
 	
 	ExibeAgenda();	
