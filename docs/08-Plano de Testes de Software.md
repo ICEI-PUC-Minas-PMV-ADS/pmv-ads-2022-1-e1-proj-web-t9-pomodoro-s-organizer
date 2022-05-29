@@ -1,19 +1,39 @@
 # Plano de Testes de Software
+Os requisitos para realização dos testes de software são:
+- Site publicado na Internet
+- Navegador da Internet - Chrome, Firefox ou Edge
+- Conectividade de Internet para acesso às plataformas (APISs)
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
+Os testes funcionais a serem realizados no aplicativo são descritos a seguir.
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
 
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
- 
-## Ferramentas de Testes (Opcional)
+|Caso de Teste | CT-01 - Cadastrar com sucesso uma atividade e sua duração e tempo de intervalo|
+|---|---|
+|Requisitos Associados|RF-01 - O site deve apresentar na página principal a agenda para a criação de atividades <br>RF-02 - O site deve apresentar o timer para configuração de  tempo da atividade criada e seu intervalo|
+|Objetivo do Teste|Verificar se a criação de atividades está acontecendo corretamente|
+|Passos|1) Acessar o navegador<br> 2) Informar o endereço do site<br> 3) Visualizar a página principal <br> 4) Acionar [Adicionar atividade]<br>5) Preencher os dados obrigatórios<br>6) Acionar [Confirmar]|
+|Critérios de Êxito|- Site informa a mensagem “Inclusão de dados realizada”<br> - Visualizar a atividade criada no menu “agenda”|
 
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+|Caso de Teste| CT-02 - Cadastrar uma atividade sem informar o nome da atividade|
+|---|---|
+|Requisitos Associados|RF-03 - O site deve permitir ao usuário a criação de uma nova atividade|
+|Objetivo do Teste|Verificar se os campo “nome da atividade” é obrigatório|
+|Passos|1) Acessar o navegador<br>2) Informar o endereço do site<br> 3) Visualizar a página principal<br>4) Acionar [Adicionar atividade]<br>5) Não preencher o campo “Atividade”<br>6) Preencher os demais campos obrigatórios<br>7) Acionar [Confirmar]|
+|Critérios de Êxito|- Site informa a mensagem “Favor preencher todos os dados”|
+
+|Caso de Teste|CT-03 - Cadastrar uma atividade sem informar o horário de início da atividade|
+|---|---|
+|Requisitos Associados|RF-04 - O site deve permitir ao usuário a criação de uma nova atividade|
+|Objetivo do Teste|Verificar se os campos “Hora Início e Minuto Início” são obrigatórios|
+|Passos|1) Acessar o navegador<br>2) Informar o endereço do site<br>3) Visualizar a página principal<br>4) Acionar [Adicionar atividade]<br>5) Não preencher o campo “Hora Início / Minuto início”<br>6) Preencher os demais campos obrigatórios<br>7) Acionar [Confirmar]|
+|Critérios de Êxito|●	Site informa a mensagem “Favor preencher todos os dados”|
+
+
+
+
+|Caso de Teste|CT-04 - Cadastrar uma atividade sem informar o horário de término da atividade|
+|---|---|
+|Requisitos Associados|RF-05 - O site deve permitir ao usuário a criação de uma nova atividade|
+|Objetivo do Teste|Verificar se os campo “Hora Fim e Minuto Fim” são obrigatórios|
+|Passos|1) Acessar o navegador<br>2) Informar o endereço do site<br>3) Visualizar a página principal<br>4) Acionar [Adicionar atividade]<br>5) Não preencher o campo “Hora Fim/ Minuto Fim”<br>6) Preencher os demais campos obrigatórios<br>7) Acionar [Confirmar]|
+|Critérios de Êxito|- Site informa a mensagem “Favor preencher todos os dados”|

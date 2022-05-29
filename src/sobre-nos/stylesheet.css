@@ -1,0 +1,41 @@
+.title {
+  margin-top: 30px;
+}
+
+.container-integrante {
+  display: grid;
+  justify-items: space-between;
+
+  grid-template-columns: 180px 1fr;
+  width: 100%;
+  margin: 35px 0px;
+}
+
+.container-img-descricao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  width: 90%;
+}
+
+.container-img-descricao > h3 {
+  font-size: 18px;
+}
+
+.integrante-descricao {
+  display: flex;
+  align-items: center;
+  text-align: left;
+
+  margin-left: 50px;
+}
+
+.integrantes-foto {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+}
