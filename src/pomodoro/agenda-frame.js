@@ -414,7 +414,7 @@ function altFrame(indice) {
 				<td colspan = "4">
 					
 					<p><label for="ativNome-${indice}">Atividade:</label>
-					<input type = "text" id="ativNome-${indice}" step="2"  maxlength="30" required onchange = "exibeConfirma(${indice})"></p>									
+					<input type = "text" id="ativNome-${indice}" step="2"  maxlength="30" required oninput = "exibeConfirma(${indice})"></p>									
 				
 			
 				
@@ -621,7 +621,7 @@ function altFrame(indice) {
 						`;
 		gravaTempBD(indice);				
 		carregaTemp(indice);
-		exibeConfirma(indice);
+		//exibeConfirma(indice);
 }
 
 function altera(indice){
