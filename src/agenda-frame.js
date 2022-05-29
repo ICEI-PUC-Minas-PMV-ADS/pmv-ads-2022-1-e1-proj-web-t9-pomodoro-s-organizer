@@ -2,7 +2,7 @@
 /*******Variárives Globais********************************************/
 
 var addAt = document.getElementById('btAdd');//bt incluir atividade
-var addConfi = document.getElementById('btConf');//bt confirmar inclusão
+var addConf = document.getElementById('btConf-i');
 var addCanc = document.getElementById('btCanc');//bt cancelar inclusão
 var bdAgenda = JSON.parse(localStorage.getItem("bdAgenda")); // banco de dados da agenda
 var bdTemp = [];
@@ -35,15 +35,18 @@ addAt.addEventListener('click',
 	
 	
 //Ação do Botão Confirmar (confirma a inclusão de dados no formulário)	
-addConfi.addEventListener('click', 
+addConf.addEventListener('click', 
 	function (){		
 		// 'i' como parâmetro se refere ao botão de inclusão.
 		document.getElementById('addTable').hidden = true;//esconde o botão incluir
 		addAt.hidden = false;//exibe a tabela para inclusão	
-		if (dadovazio('i') && maxtemp('i') && mintemp('i') && validatemp('i')){//se não existir nenhum erro.
-			incluir('i');//faz a inclusão
+		if (dadovazio('i') && maxtemp('i') && mintemp('i') && validatemp('i', bdAgenda)){//se não existir nenhum erro.
+			incluir('i',bdAgenda);//faz a inclusão
 			alert("Inclusão de dados realizada");
+			ordenar(bdAgenda);		
+			localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
 			bdTemp = []; //reinicia a arrey temporária.
+			
 			ExibeAgenda ();//atualiza a tabela da agenda.
 		} else {
 			gravaTemp('i'); // grava os dados do formulário para reexibição.
@@ -69,6 +72,23 @@ function gravaTemp(indice){
 		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
 		var hFim = parseInt(document.getElementById('hAtivFim-'+indice).value);
 		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
+				
+		//cria variável no formato para ser incluído no Bd
+		bdTemp = [
+		nomeAtivi,
+		hInicio,
+		mInicio,			
+		hFim,
+		mFim]		
+}
+
+//grava uma array temporária com os dados de 1 elemendo do BdAgenda
+function gravaTempBD(indice){
+		var nomeAtivi = bdAgenda[indice].nome;	
+		var hInicio =  bdAgenda[indice].inicio.hora;
+		var mInicio = bdAgenda[indice].inicio.minuto;
+		var hFim = bdAgenda[indice].fim.hora
+		var mFim = bdAgenda[indice].fim.minuto;
 				
 		//cria variável no formato para ser incluído no Bd
 		bdTemp = [
@@ -134,7 +154,7 @@ function mintemp(indice){
 }// fim da função min temp.
 	
 //Função para exibir tabela da agenda:
-function ExibeAgenda () {
+function ExibeAgenda() {
 	var tabela = document.getElementById('tabelaAgenda');
 	var textoHTML = `
 	<table class = "table table-bordered">
@@ -226,7 +246,7 @@ function ExibeAgenda () {
 }//fim da função ExibeAgenda
 
 //função para incluir item
-function incluir (indice){
+function incluir (indice, arrayTemp){
 		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
 		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
 		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
@@ -252,22 +272,20 @@ function incluir (indice){
 		progress: 0,
 		};		
 		//inclui o item no BD Agenda
-		bdAgenda[bdAgenda.length] = tempItem;
-		ordenar();
-		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
+		arrayTemp[arrayTemp.length] = tempItem;
 }//fim da função incluir
 
 //função para ordenar o lista de avtividades (bubble sort).
-function ordenar(){
-	var bdSize = bdAgenda.length;
+function ordenar(arrayTemp1){
+	var bdSize = arrayTemp1.length;
 	
 	if (bdSize > 0) {		
 		for (var i = 1; i < bdSize; i++){
 			for (var j = 0; j < bdSize - 1; j++){
-				if (bdAgenda[j].inicio.tempo > bdAgenda[j+1].inicio.tempo){
-					var hold = bdAgenda[j];
-					bdAgenda[j] = bdAgenda[j+1];
-					bdAgenda[j+1] = hold;					
+				if (arrayTemp1[j].inicio.tempo > arrayTemp1[j+1].inicio.tempo){
+					var hold = arrayTemp1[j];
+					arrayTemp1[j] = arrayTemp1[j+1];
+					arrayTemp1[j+1] = hold;					
 				}
 			}			
 		}	
@@ -277,6 +295,8 @@ function ordenar(){
 
 //função exibe botão de confirmar (só exibe qdo todos os dados estão preenchidos)
 function exibeConfirma(indice){
+		var addConfi = document.getElementById('btConf-'+indice);
+	
 		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
 		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
 		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
@@ -284,17 +304,17 @@ function exibeConfirma(indice){
 		var mFim = parseInt(document.getElementById('mAtivFim-'+indice).value);
 		
 		if (nomeAtivi == "" || hInicio == "-1" || mInicio == "-1" || hFim == "-1" || mFim == "-1"){
-			eval("addConf"+indice).disabled = true;		
+			addConfi.disabled = true;		
 			
 		}
 		else {
-			eval("addConf"+indice).disabled = false;
+			addConfi.disabled = false;
 				
 		}
 }//fim da função exibeConfirma
 
 //função valida tempo repetido
-function validatemp(indice){
+function validatemp(indice, bdAgenda){
 	
 		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
 		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
@@ -368,8 +388,8 @@ function frameExc(element) {
 	tdBOX.innerHTML = `
 							<td colspan = "4">
 							
-							<button type="reset" id="btConfExc-${element}" class="btn btn-dark" onclick = "excluir(${element})"> Confirmar Exclusão</button>				
-							<button type="reset" id="btCancExc-${element}" class="btn btn-dark" onclick = "ExibeAgenda ()"> Cancelar</button>				
+							<button type="reset" id="btConfExc-${element}" class="btn btn-secondary" onclick = "excluir(${element})"> Confirmar Exclusão</button>				
+							<button type="reset" id="btCancExc-${element}" class="btn btn-secondary" onclick = "ExibeAgenda ()"> Cancelar</button>				
 						
 							</td>
 						
@@ -592,16 +612,52 @@ function altFrame(indice) {
 					</select>																	
 					</p>
 		
-					<button type="reset" id="btConf" class="btn btn-dark" disabled> Confirmar</button>				
+					<button type="reset" id="btConf-${indice}" class="btn btn-secondary" disabled onclick = "altera(${indice})" >Confirmar Alteração</button>				
 					
-					<button type="reset" id="btCanc" class="btn btn-dark"> Cancelar</button>				
+					<button type="reset" id="btCanc-${indice}" class="btn btn-secondary" onclick = "cancAlt(${indice})">Cancelar</button>				
 					</form>
 				
 				</td>						
 						`;
+		gravaTempBD(indice);				
+		carregaTemp(indice);
+		exibeConfirma(indice);
 }
 
+function altera(indice){
+	var altBD =[];
+	
+	//faz uma cópía do banco de dados
+	for (var i = 0; i < bdAgenda.length; i++){
+		altBD[i] = bdAgenda[i]	
+	}
+	
+	var altEle = altBD.splice(indice, 1);
+	var tdBOX = document.getElementById("interation-table-"+indice);
+	
+	//se não existir nenhum erro.
+	if (dadovazio(indice) && maxtemp(indice) && mintemp(indice) && validatemp(indice, altBD)){
+		bdAgenda.splice(indice, 1); // excui o elemento sem alteração.
+		incluir(indice,bdAgenda);//faz a inclusão dos dados alterados.
+		alert("Inclusão de dados realizada");
+		ordenar(bdAgenda); // ordena		
+		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava
+		bdTemp = []; //reinicia a arrey temporária.
+		tdBOX.innerHTML = ""
+	} else{
+		bdTemp = [];
+		tdBOX.innerHTML = ""
+	}
+	
+	ExibeAgenda();	
+}
 
+function cancAlt(indice){
+	var tdBOX = document.getElementById("interation-table-"+indice);
+	tdBOX.innerHTML = "";
+	bdTemp = [];
+	ExibeAgenda();	
+}
 
 //=================================================================================
 //Relógio temporário
