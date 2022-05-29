@@ -642,7 +642,7 @@ function altera(indice){
 		incluir(indice,bdAgenda);//faz a inclusão dos dados alterados.
 		alert("Inclusão de dados realizada");
 		ordenar(bdAgenda); // ordena		
-		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava
+		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava no local storage
 		bdTemp = []; //reinicia a arrey temporária.
 		tdBOX.innerHTML = "";
 	} else{
@@ -682,6 +682,7 @@ function mudaRange(indice, bdAgenda){
 	var newrange = document.getElementById("statusbar"+indice).value;
 	
 	bdAgenda[indice].progress = newrange;
+	localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava no local storage
 	tdBOX.innerHTML = "";
 	tdBOX.hidden = true;
 }
