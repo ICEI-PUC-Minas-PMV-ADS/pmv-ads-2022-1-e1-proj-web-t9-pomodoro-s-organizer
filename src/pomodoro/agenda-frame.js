@@ -41,7 +41,7 @@ addConf.addEventListener('click',
 		document.getElementById('addTable').hidden = true;//esconde o botão incluir
 		addAt.hidden = false;//exibe a tabela para inclusão	
 		if (dadovazio('i') && maxtemp('i') && mintemp('i') && validatemp('i', bdAgenda)){//se não existir nenhum erro.
-			incluir('i',bdAgenda);//faz a inclusão
+			incluir('i',bdAgenda, 0, 0);//faz a inclusão
 			alert("Inclusão de dados realizada");
 			ordenar(bdAgenda);		
 			localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
@@ -246,7 +246,7 @@ function ExibeAgenda() {
 }//fim da função ExibeAgenda
 
 //função para incluir item
-function incluir (indice, arrayTemp){
+function incluir (indice, arrayTemp, stat, progr){
 		var nomeAtivi = document.getElementById('ativNome-'+indice).value;	
 		var hInicio =  parseInt(document.getElementById('hAtivInicio-'+indice).value);
 		var mInicio = parseInt(document.getElementById('mAtivInicio-'+indice).value);
@@ -268,8 +268,8 @@ function incluir (indice, arrayTemp){
 			minuto: mFim,
 			tempo: tFim,
 		},
-		status: 0,
-		progress: 0,
+		status: stat,
+		progress: progr,
 		};		
 		//inclui o item no BD Agenda
 		arrayTemp[arrayTemp.length] = tempItem;
@@ -628,6 +628,10 @@ function altFrame(indice) {
 function altera(indice){
 	var altBD =[];
 	
+	//variaveis para parâmetros de status e valor na inclusão.
+	var status = bdAgenda[indice].status;
+	var progress = bdAgenda[indice].progress;
+	
 	//faz uma cópía do banco de dados
 	for (var i = 0; i < bdAgenda.length; i++){
 		altBD[i] = bdAgenda[i];
@@ -639,15 +643,19 @@ function altera(indice){
 	//se não existir nenhum erro.
 	if (dadovazio(indice) && maxtemp(indice) && mintemp(indice) && validatemp(indice, altBD)){
 		bdAgenda.splice(indice, 1); // excui o elemento sem alteração.
-		incluir(indice,bdAgenda);//faz a inclusão dos dados alterados.
-		alert("Inclusão de dados realizada");
-		ordenar(bdAgenda); // ordena		
+		incluir(indice,bdAgenda, status, progress);//faz a inclusão dos dados alterados.
+		ordenar(bdAgenda); // ordena
+		
 		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // grava no local storage
 		bdTemp = []; //reinicia a arrey temporária.
 		tdBOX.innerHTML = "";
+		tdBOX.hidden = true;
+		alert("Inclusão de dados realizada");
+		
 	} else{
 		bdTemp = [];
 		tdBOX.innerHTML = "";
+		tdBOX.hidden = true;
 	}
 	
 	ExibeAgenda();	
