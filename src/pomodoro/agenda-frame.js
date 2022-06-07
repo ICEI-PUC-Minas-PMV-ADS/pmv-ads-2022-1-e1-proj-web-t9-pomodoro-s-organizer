@@ -268,7 +268,7 @@ function incluir (indice, arrayTemp, stat, progr){
 			minuto: mFim,
 			tempo: tFim,
 		},
-		status: stat,
+		status: stat, //0 não iniciado, 1 em adamento, 2 pausado, 3 concluido
 		progress: progr,
 		};		
 		//inclui o item no BD Agenda
@@ -702,8 +702,9 @@ function cancRange (indice, bdAgenda){
 }
 
 //=================================================================================
-//Relógio temporário
+//TIMER PROTÓTIPO
 
+/*
 //função timer (Protótipo)
 var tempoEmMinutos = 25;
 var expiracao = new  Date(new Date().getTime() + tempoEmMinutos * 60000);
@@ -722,4 +723,23 @@ contador = window.setInterval(function(){
     //abaixo, coloque no lugar de 'tempo' o id do elemento do html que contem o timer
     document.getElementById('timer').innerHTML = `<h3>${tempoRestante}</h3>`;
     //console.log(tempoRestante);
-}, 1000);
+}, 1000);*/
+
+//=================================================================================
+//TIMER
+
+//objeto do Timer
+var pTimer = {nAtividade: -1,
+	tamanhoAtivi: 0,
+	progress: 0,
+	tRest: 0,
+	status: 0, //0 não iniciado, 1 em adamento, 2 pausado, 3 concluido
+}; //objeto Timer
+
+//função para startar o timer
+function playTimer (indice) {
+	
+	
+	
+	
+}
