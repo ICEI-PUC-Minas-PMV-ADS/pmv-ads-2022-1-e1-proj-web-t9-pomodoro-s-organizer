@@ -197,22 +197,32 @@ function ExibeAgenda() {
 							
 								<form>
 														
-								 <input type="range" id = "statusbar${i}" name = "${i}" min = "0" max = "100" step = "1" value = "${bdAgenda[i].progress}" oninput = "frameRange(${i})">
+								 <input type="range" id = "statusbar${i}" name = "${i}" min = "0" max = "1" step = "0.01" value = "${bdAgenda[i].progress}" oninput = "frameRange(${i})">
 								</form>
 							
 							</td>
 							
 							<td colspan="3">
 								<div class = "btn-group">
-									<button type="button" class="btn btn-outline-secondary">
+									<button type="button" class="btn btn-outline-secondary" id = "btn-p-${i}"  onclick = playTimer(${i})>
 										<span id = "btn-play-${i}" name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
 												<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
 											</svg>
 										</span>
+									</button>
 									
-									<button type="button" class="btn btn-outline-secondary" onclick = frameExc(${i})>
-										<span id = "btn-exc-${i}" name = "${i}">
+									<button type="button" class="btn btn-outline-secondary" id = "btn-s-${i}"  onclick = stopAtividade(${i}) hidden>	
+										<span id = "btn-stop-${i}" name = "${i}">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stop-circle" viewBox="0 0 16 16">
+											  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+											  <path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3z"/>
+											</svg>
+										</span>
+									</button>
+									
+									<button type="button" class="btn btn-outline-secondary" onclick = frameExc(${i}) id = "btn-exc-${i}">
+										<span name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
 											  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
 											</svg>
@@ -220,8 +230,8 @@ function ExibeAgenda() {
 									</button>
 									
 										
-									<button type="button" class="btn btn-outline-secondary" onclick = altFrame(${i})>
-										<span id = "btn-alt-${i}" name = "${i}">
+									<button type="button" class="btn btn-outline-secondary" onclick = altFrame(${i}) id = "btn-alt-${i}" >
+										<span name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
 											  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
 											</svg>
@@ -328,10 +338,12 @@ function validatemp(indice, bdAgenda){
 		
 		var result = false;
 		
+		//se não tiver nenhuma atividade cadastrada não precisa conferir
 		if (tamanhoBD == 0){
 			result = true;
 			
 		} else {
+			//faz a verificação em cada atividade
 			for (var i = 0; i < tamanhoBD; i++){
 				if( tInicio > bdAgenda[i].inicio.tempo && tInicio < bdAgenda[i].fim.tempo){
 					alert ("O inicio da atividade coincide com outra atividade já programada");
@@ -729,17 +741,116 @@ contador = window.setInterval(function(){
 //TIMER
 
 //objeto do Timer
-var pTimer = {nAtividade: -1,
-	tamanhoAtivi: 0,
-	progress: 0,
-	tRest: 0,
+var pTimer = {nAtividade: -1, // qual atividade.
+	tamanhoAtivi: 0, // tamanho da atividade em segundos.
+	tempoInicio: 0, // hora que começa a atividade.
+	ultimoTempo: 0, // ultimo loop de verificação do tempo
+	progress: 0, // percentual concluido
+	tRest: 0, // tempo restante para o fim da atividade
 	status: 0, //0 não iniciado, 1 em adamento, 2 pausado, 3 concluido
+	tEstudo: 0, //tempo estudado
+	tPausa: 0, //tempo pausado em segundos.
 }; //objeto Timer
+
+
 
 //função para startar o timer
 function playTimer (indice) {
+	var agora = new Date();
+	var hora = agora.getHours() * 3600
+	var minuto = agora.getMinutes() * 60;
+	var segundo = agora.getSeconds();	
+	agora = hora + minuto + segundo; //tempo em segundos.
 	
+	alteraPlay(0); // desabilita todos os botões play	
 	
+	document.getElementById(`btn-p-${indice}`).hidden = true; //esconde botão play
+	document.getElementById(`btn-s-${indice}`).hidden = false; // apresenta botão stop
+			
+	pTimer.nAtividade = indice;
+	pTimer.tamanhoAtivi = (bdAgenda[indice].fim.tempo - bdAgenda[indice].inicio.tempo)*60;
+	pTimer.progress =bdAgenda[indice].progress
+	//pTimer.status = 1;
+	pTimer.tempoInicio = agora;
+	pTimer.ultimoTempo = pTimer.tempoInicio;
+	pTimer.tEstudo = pTimer.tamanhoAtivi * pTimer.progress;
+	pTimer.tRest = pTimer.tamanhoAtivi - pTimer.tEstudo;
 	
+	document.getElementById("AtivName").innerHTML = `<i>${bdAgenda[indice].nome}</i>`
+	
+	//chama a função de contagem regressiva.
+	meuIntervalo = setInterval(loopTimer, 1000, pTimer, indice);
 	
 }
+
+//função para interromper o timer.	
+function paraTimer(){
+	clearInterval(meuIntervalo);	
+}
+
+//função que mostra contagem regressiva e grava progresso.
+function loopTimer(pTimer, indice){
+	
+		var agoraloop = new Date();
+		var horaloop = agoraloop.getHours() * 3600
+		var minutoloop = agoraloop.getMinutes() * 60;
+		var segundoloop = agoraloop.getSeconds();	
+		agoraloop = horaloop + minutoloop + segundoloop; //tempo em segundos dentro do loop
+    
+		pTimer.tEstudo += agoraloop - pTimer.ultimoTempo; // acrescenta tempo de estudo.
+		pTimer.ultimoTempo = agoraloop;
+		pTimer.progress =pTimer.tEstudo / pTimer.tamanhoAtivi;
+		pTimer.tRest = pTimer.tamanhoAtivi - pTimer.tEstudo;
+		
+		
+		if (pTimer.tRest < 0){						
+			document.getElementById('timer').innerHTML = `PARABÉNS! TAREFA CONCLUÍDA`;
+			paraTimer();
+		} else {
+			var h = pTimer.tRest;
+			var m = parseInt(h) % 3600;
+			var s = parseInt(m) % 60;
+			document.getElementById('timer').innerHTML = `${parseInt(h / 3600)} : ${parseInt(m / 60)} : ${s}`;
+		}
+		bdAgenda[indice].progress = pTimer.progress;
+		document.getElementById("statusbar"+indice).value = bdAgenda[indice].progress;		
+		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
+		document.getElementById("tprogress").style = `width: ${parseInt(pTimer.progress * 100)}%`
+		document.getElementById("tprogress").innerHTML = `${parseInt(pTimer.progress * 100)}%`
+}
+
+//função para desabilitar botões da agenda.
+function alteraPlay(opcao){
+	
+	// se 0 desativa todos os botões Play
+	if (opcao == 0){	
+		for (var i = 0; i < bdAgenda.length; i++){			
+			document.getElementById(`btn-p-${i}`).disabled = true;			
+		}//end for
+	//se diferente de 0 habilita todos os botões.
+	} else {
+		for (var i = 0; i < bdAgenda.length; i++){			
+			document.getElementById(`btn-p-${i}`).disabled = false;			
+		}//end for
+	}
+}
+
+//função para stopar atividade.
+function stopAtividade (indice){	
+	paraTimer();
+	
+	alteraPlay(1); // reabilita todos os plays;
+	
+	document.getElementById(`btn-p-${indice}`).hidden = false; //apresenta botão play
+	document.getElementById(`btn-s-${indice}`).hidden = true; // esconde botão stop	
+}
+
+
+
+	
+//	id = "AtivName"
+//	id = "timer"
+//	id="tprogress" 
+	
+	
+	
