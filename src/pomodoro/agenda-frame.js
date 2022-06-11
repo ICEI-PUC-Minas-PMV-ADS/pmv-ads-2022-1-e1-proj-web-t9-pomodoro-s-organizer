@@ -11,6 +11,10 @@ var bdTemp = [];
 window.onload = function(){
 		if(bdAgenda == null)
 		bdAgenda = [];
+		
+		for (var i = 0; i < bdAgenda.length; i++){
+			bdAgenda[i].status = 0;
+		}
 		ExibeAgenda ();
 	};
 
@@ -121,8 +125,8 @@ function maxtemp (indice){
 		var tInicio =  hInicio * 60 + mInicio; //tempo em minutos
 		var tFim = hFim * 60 + mFim;	//tempo em ninutos
 	
-	if (tFim- tInicio > 120){//atividaed ultrapassa 2h
-		alert("Atividade não pode exceder 2 horas");
+	if (tFim- tInicio > 300){//atividaed ultrapassa 2h
+		alert("Atividade não pode exceder 5 horas");
 		gravaTemp(indice);
 		
 		return false; // retorna zero para falso (ERRO)
@@ -204,7 +208,7 @@ function ExibeAgenda() {
 							
 							<td colspan="3">
 								<div class = "btn-group">
-									<button type="button" class="btn btn-outline-secondary" id = "btn-p-${i}"  onclick = playTimer(${i})>
+									<button type="button" class="btn btn-outline-dark" id = "btn-p-${i}"  onclick = playTimer(${i})>
 										<span id = "btn-play-${i}" name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
 												<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
@@ -212,7 +216,7 @@ function ExibeAgenda() {
 										</span>
 									</button>
 									
-									<button type="button" class="btn btn-outline-secondary" id = "btn-s-${i}"  onclick = stopAtividade(${i}) hidden>	
+									<button type="button" class="btn btn-outline-dark" id = "btn-s-${i}"  onclick = stopAtividade(${i}) hidden>	
 										<span id = "btn-stop-${i}" name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stop-circle" viewBox="0 0 16 16">
 											  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -221,7 +225,7 @@ function ExibeAgenda() {
 										</span>
 									</button>
 									
-									<button type="button" class="btn btn-outline-secondary" onclick = frameExc(${i}) id = "btn-exc-${i}">
+									<button type="button" class="btn btn-outline-dark" onclick = frameExc(${i}) id = "btn-exc-${i}">
 										<span name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
 											  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
@@ -230,7 +234,7 @@ function ExibeAgenda() {
 									</button>
 									
 										
-									<button type="button" class="btn btn-outline-secondary" onclick = altFrame(${i}) id = "btn-alt-${i}" >
+									<button type="button" class="btn btn-outline-dark" onclick = altFrame(${i}) id = "btn-alt-${i}" >
 										<span name = "${i}">
 											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
 											  <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
@@ -252,6 +256,8 @@ function ExibeAgenda() {
 						</table>`
 		tabela.innerHTML = textoHTML; //imprime a tabela.
 	} //fim do else
+		
+	showButtons();
 		
 }//fim da função ExibeAgenda
 
@@ -713,29 +719,6 @@ function cancRange (indice, bdAgenda){
 	cancAlt(indice);
 }
 
-//=================================================================================
-//TIMER PROTÓTIPO
-
-/*
-//função timer (Protótipo)
-var tempoEmMinutos = 25;
-var expiracao = new  Date(new Date().getTime() + tempoEmMinutos * 60000);
-
-
-contador = window.setInterval(function(){
-    faltam = expiracao - new Date();
-    if (faltam <= 0){
-        window.clearInerval(contador);
-        //console.log("Prazo expirado");
-    }
-    minutos = Math.floor(faltam / 60000);
-    segundos = faltam % 60000;
-    tempoRestante = `${minutos}:${segundos.toString().substring(0,2)}`;
-
-    //abaixo, coloque no lugar de 'tempo' o id do elemento do html que contem o timer
-    document.getElementById('timer').innerHTML = `<h3>${tempoRestante}</h3>`;
-    //console.log(tempoRestante);
-}, 1000);*/
 
 //=================================================================================
 //TIMER
@@ -749,10 +732,9 @@ var pTimer = {nAtividade: -1, // qual atividade.
 	tRest: 0, // tempo restante para o fim da atividade
 	status: 0, //0 não iniciado, 1 em adamento, 2 pausado, 3 concluido
 	tEstudo: 0, //tempo estudado
-	tPausa: 0, //tempo pausado em segundos.
+	tPomod: 0, // tempo de estudo continuo (sem STOP).
+	tPausa: 0 //tempo pausado em segundos.	
 }; //objeto Timer
-
-
 
 //função para startar o timer
 function playTimer (indice) {
@@ -762,7 +744,11 @@ function playTimer (indice) {
 	var segundo = agora.getSeconds();	
 	agora = hora + minuto + segundo; //tempo em segundos.
 	
-	alteraPlay(0); // desabilita todos os botões play	
+	bdAgenda[indice].status = 1;	
+	//alteraPlay(0); // desabilita todos os botões play
+	showButtons();
+
+	
 	
 	document.getElementById(`btn-p-${indice}`).hidden = true; //esconde botão play
 	document.getElementById(`btn-s-${indice}`).hidden = false; // apresenta botão stop
@@ -770,13 +756,14 @@ function playTimer (indice) {
 	pTimer.nAtividade = indice;
 	pTimer.tamanhoAtivi = (bdAgenda[indice].fim.tempo - bdAgenda[indice].inicio.tempo)*60;
 	pTimer.progress =bdAgenda[indice].progress
-	//pTimer.status = 1;
+	//pTimer.status = bdAgenda[indice].status;
 	pTimer.tempoInicio = agora;
 	pTimer.ultimoTempo = pTimer.tempoInicio;
 	pTimer.tEstudo = pTimer.tamanhoAtivi * pTimer.progress;
 	pTimer.tRest = pTimer.tamanhoAtivi - pTimer.tEstudo;
 	
 	document.getElementById("AtivName").innerHTML = `<i>${bdAgenda[indice].nome}</i>`
+
 	
 	//chama a função de contagem regressiva.
 	meuIntervalo = setInterval(loopTimer, 1000, pTimer, indice);
@@ -796,27 +783,34 @@ function loopTimer(pTimer, indice){
 		var minutoloop = agoraloop.getMinutes() * 60;
 		var segundoloop = agoraloop.getSeconds();	
 		agoraloop = horaloop + minutoloop + segundoloop; //tempo em segundos dentro do loop
-    
+		
+		pTimer.tPomod += agoraloop - pTimer.ultimoTempo;
 		pTimer.tEstudo += agoraloop - pTimer.ultimoTempo; // acrescenta tempo de estudo.
 		pTimer.ultimoTempo = agoraloop;
 		pTimer.progress =pTimer.tEstudo / pTimer.tamanhoAtivi;
 		pTimer.tRest = pTimer.tamanhoAtivi - pTimer.tEstudo;
 		
+		veriMomento(pTimer.tPomod)
+			
 		
 		if (pTimer.tRest < 0){						
 			document.getElementById('timer').innerHTML = `PARABÉNS! TAREFA CONCLUÍDA`;
 			paraTimer();
+			
+		//separa o tempo restante em horas minutos e segundo para imprimir formatado.
 		} else {
 			var h = pTimer.tRest;
 			var m = parseInt(h) % 3600;
 			var s = parseInt(m) % 60;
 			document.getElementById('timer').innerHTML = `${parseInt(h / 3600)} : ${parseInt(m / 60)} : ${s}`;
 		}
-		bdAgenda[indice].progress = pTimer.progress;
-		document.getElementById("statusbar"+indice).value = bdAgenda[indice].progress;		
-		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda));
-		document.getElementById("tprogress").style = `width: ${parseInt(pTimer.progress * 100)}%`
+		bdAgenda[indice].progress = pTimer.progress; // atualiza o progresso no banco de dados
+		document.getElementById("statusbar"+indice).value = bdAgenda[indice].progress; // atualiza o status bar da agenda		
+		localStorage.setItem("bdAgenda", JSON.stringify(bdAgenda)); // armazena no JSON
+		document.getElementById("tprogress").style = `width: ${parseInt(pTimer.progress * 100)}%` // atualiza barra de progresso
 		document.getElementById("tprogress").innerHTML = `${parseInt(pTimer.progress * 100)}%`
+		
+		
 }
 
 //função para desabilitar botões da agenda.
@@ -839,18 +833,109 @@ function alteraPlay(opcao){
 function stopAtividade (indice){	
 	paraTimer();
 	
-	alteraPlay(1); // reabilita todos os plays;
+	bdAgenda[indice].status = 0;
 	
-	document.getElementById(`btn-p-${indice}`).hidden = false; //apresenta botão play
-	document.getElementById(`btn-s-${indice}`).hidden = true; // esconde botão stop	
+	showButtons();
+	
+	document.getElementById("AtivName").innerHTML = `<i>Escolha a Atividade</i>`;
+	document.getElementById('timer').innerHTML = ``;
+	
+	//alteraPlay(1); // reabilita todos os plays;
+	
+	//document.getElementById(`btn-p-${indice}`).hidden = false; //apresenta botão play
+	//document.getElementById(`btn-s-${indice}`).hidden = true; // esconde botão stop	
 }
 
+//função para exibir ou desabilitar botões.
+function showButtons(){
+	
+	var statusPlay = 0;
+	
+	for (var i = 0; i < bdAgenda.length; i++){
+		if(bdAgenda[i].status == 1){
+			document.getElementById(`btn-p-${i}`).hidden = true;//botão play
+			document.getElementById(`btn-s-${i}`).hidden = false;
+			
+			document.getElementById(`btn-exc-${i}`).disabled = true;
+			document.getElementById(`btn-exc-${i}`).disabled = true;
+			document.getElementById(`btn-alt-${i}`).disabled = true;
+			document.getElementById(`statusbar${i}`).disabled = true;
+			statusPlay = 1;
+		} else{
+			document.getElementById(`btn-p-${i}`).hidden = false;//botão play
+			document.getElementById(`btn-s-${i}`).hidden = true;
+			
+			document.getElementById(`btn-exc-${i}`).disabled = false;
+			document.getElementById(`btn-exc-${i}`).disabled = false;
+			document.getElementById(`btn-alt-${i}`).disabled = false;
+			document.getElementById(`statusbar${i}`).disabled = false;			
+		}		
+	}//end for
+	
+	if (statusPlay == 1){
+		alteraPlay(0); // desabilita todos os plays;		
+	} else{
+		alteraPlay(1); 	
+	}	
+	
+}
+
+//=================================================================================
+//Método Pomodoro
+
+//objeto Pomodoro
+var pomodoroTimes = {
+	tEstudo: 25 * 60,
+	pausaCurta: 5 * 60,
+	pausaLonga: 30 * 60}
+
+//objeto que define os intervalos de estudo e pausa.
+var pIntervalos = {	
+	tEst1: 0,
+	tpausa1: pomodoroTimes.tEstudo,
+	tEst2: pomodoroTimes.tEstudo * 1 + pomodoroTimes.pausaCurta * 1,
+	tpausa2: pomodoroTimes.tEstudo * 2 + pomodoroTimes.pausaCurta * 1,
+	tEst3: pomodoroTimes.tEstudo * 2 + pomodoroTimes.pausaCurta * 2,
+	tpausa3: pomodoroTimes.tEstudo * 3 + pomodoroTimes.pausaCurta * 2,
+	tEst4: pomodoroTimes.tEstudo * 3 + pomodoroTimes.pausaCurta * 3,
+	tpausa4: pomodoroTimes.tEstudo * 4 + pomodoroTimes.pausaCurta * 3,
+	tfinal: pomodoroTimes.tEstudo * 4 + pomodoroTimes.pausaCurta * 3 + pomodoroTimes.pausaLonga,
+}
+
+//função que verifica se é momento de pausa ou estudo.
+function veriMomento(tSemStop){	
+	//verifica qual é a rodada (começa com 0);
+	var i = parseInt(tSemStop / pIntervalos.tfinal);
+	
+	if ((tSemStop >=  pIntervalos.tEst1 + pIntervalos.tfinal * i && tSemStop < pIntervalos.tpausa1 + pIntervalos.tfinal * i) ||
+		(tSemStop >=  pIntervalos.tEst2 + pIntervalos.tfinal * i && tSemStop < pIntervalos.tpausa2 + pIntervalos.tfinal * i) ||
+		(tSemStop >=  pIntervalos.tEst3 + pIntervalos.tfinal * i && tSemStop < pIntervalos.tpausa3 + pIntervalos.tfinal * i) ||
+		(tSemStop >=  pIntervalos.tEst4 + pIntervalos.tfinal * i && tSemStop < pIntervalos.tpausa4 + pIntervalos.tfinal * i) ) {
+			document.getElementById("time-pomodoro").innerHTML = `
+				<table class = "table bg-success text-center text-white">					
+					<tr>
+						<td><b>Momento Estudo/Atividade </b></td>							
+					</tr>	
+				</table>`
+				
+	//verifica se está na pausa longa.	
+	} else if(tSemStop >= pIntervalos.tpausa4 && tSemStop < pIntervalos.tfinal + pIntervalos.tfinal * i){
+				document.getElementById("time-pomodoro").innerHTML = `
+				<table class = "table bg-danger text-center text-white">					
+					<tr>
+						<td><b>Pausa LONGA ${i}</b></td>							
+					</tr>	
+				</table>`	
+				
+	//se não apresenta que é momento de pausa
+	} else {
+				document.getElementById("time-pomodoro").innerHTML = `
+				<table class = "table bg-danger text-center text-white">					
+					<tr>
+						<td><b>Pausa CURTA ${i}</b></td>							
+					</tr>	
+				</table>`		
+	}
+} // fim da função veriMomento
 
 
-	
-//	id = "AtivName"
-//	id = "timer"
-//	id="tprogress" 
-	
-	
-	
