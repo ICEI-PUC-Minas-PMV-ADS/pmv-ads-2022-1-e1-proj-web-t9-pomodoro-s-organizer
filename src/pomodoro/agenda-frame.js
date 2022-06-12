@@ -907,6 +907,7 @@ function veriMomento(tSemStop){
 	//verifica qual é a rodada (começa com 0);
 	var i = parseInt(tSemStop / pIntervalos.tfinal);
 	
+	//verifica se está em momento de estudo.	
 	if ((tSemStop >=  pIntervalos.tEst1 + pIntervalos.tfinal * i && tSemStop < pIntervalos.tpausa1 + pIntervalos.tfinal * i) ||
 		(tSemStop >=  pIntervalos.tEst2 + pIntervalos.tfinal * i && tSemStop < pIntervalos.tpausa2 + pIntervalos.tfinal * i) ||
 		(tSemStop >=  pIntervalos.tEst3 + pIntervalos.tfinal * i && tSemStop < pIntervalos.tpausa3 + pIntervalos.tfinal * i) ||
@@ -923,7 +924,7 @@ function veriMomento(tSemStop){
 				document.getElementById("time-pomodoro").innerHTML = `
 				<table class = "table bg-danger text-center text-white">					
 					<tr>
-						<td><b>Pausa LONGA ${i}</b></td>							
+						<td><b>Pausa LONGA</b></td>							
 					</tr>	
 				</table>`	
 				
@@ -932,7 +933,7 @@ function veriMomento(tSemStop){
 				document.getElementById("time-pomodoro").innerHTML = `
 				<table class = "table bg-danger text-center text-white">					
 					<tr>
-						<td><b>Pausa CURTA ${i}</b></td>							
+						<td><b>Pausa CURTA</b></td>							
 					</tr>	
 				</table>`		
 	}

@@ -54,16 +54,9 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 
 |ID     | Descrição do Requisito  | Prioridade |
 |-------|-----------------------------------------|----|
-| RF-01 | O site deve apresentar uma ferramenta de agenda para incluir e gerenciar as matérias que devem ser estudadas em cada horário | Alta | 
-| RF-02 | O site deve apresentar um timer personalizável em que o usuário possa configurar tempo de estudo e tempo de pausa |  Alta |
+| RF-01 | O site deve apresentar uma ferramenta de agenda para incluir e gerenciar as matérias que devem ser estudadas em cada horário| Alta | 
+| RF-02 | O site deve apresentar um timer dentro da metodologia Pomodoro que informa o usuário se é um momento de estudo ou de intervalo. |  Alta |
 | RF-03 | A agenda deve conter uma barra de status para que o usuário possa controlar o progresso de cada atividade | Alta |
-| RF-04 | O site deve ter um sistema de recompensa para cada tarefa concluída | Média |
-| RF-05 | Se o usuário tentar interromper uma tarefa que falta menos de 20% para conclusão deve ser apresentado uma mensagem de incentivo | Média |
-| RF-06 | Mensagem de parabéns caso o usuário cumpra a meta diária | Média |
-| RF-07 | Deve existir uma ferramenta para mudança do tamanho da fonte tornando a site mais acessível | Média |
-| RF-08 | O site deve apresentar uma função de alto-contraste para torná-lo mais acessível | Baixa |
-| RF-09 | Nos momentos de pausa deve ser apresentado sugestões de qual atividade de descanso o usuário pode fazer | Baixa |
-| RF-10 | Ter API com alguma ferramenta de música para que o usuário possa incluir som de fundo | Baixa |
 
 
 ### Requisitos não Funcionais
@@ -75,9 +68,6 @@ A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá 
 | RNF-01 | O site deve ser publicado em um ambiente acessível publicamente na Internet (Repl.it, GitHub Pages, Heroku) |Alta | 
 | RNF-02 | O site deverá ter design clean, sem muitas distrações para o usuário |  Alta | 
 | RNF-03 | O site deve ser compatível com os principais navegadores do mercado (Google Chrome, Firefox, Microsoft Edge) |Alta |
-| RNF-04 | O site deve atender boas práticas de acessibilidade para tornar o uso de leitores de telas para deficientes visuais conforme o WCAG | Alta |
-| RNF-05 | O site deve ter bom nível de contraste entre os elementos da tela em conformidade conforme o WCAG |  Alta |
-
 
 ## Restrições
 
