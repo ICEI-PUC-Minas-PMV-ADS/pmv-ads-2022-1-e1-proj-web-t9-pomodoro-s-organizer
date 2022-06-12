@@ -16,7 +16,7 @@ Um site que une o Método Pomodoro a uma agenda semanal personalizável para que
 * Lucas Eduardo Honório da Silva 
 * Luciano Ribeiro do Prado 
 
-## Orientador
+## Orientadora
 
 * Daniela Carvalho Monteiro Ferreira 
 
@@ -35,17 +35,18 @@ Neste momento a página está em desenvolvimento.
 3. [Metodologia](docs/03-Metodologia.md)
 4. [Projeto de Interface](docs/04-Projeto%20de%20Interface.md)
 5. [Arquitetura da Solução](docs/05-Arquitetura%20da%20Solução.md)
-6. [Template padrão do Site](docs/06-Template%20padrão%20do%20Site.md) `não iniciado`
-7. [Programação de Funcionalidades](docs/07-Programação%20de%20Funcionalidades.md) `não iniciado`
-8. [Plano de Testes de Software](docs/08-Plano%20de%20Testes%20de%20Software.md) `não iniciado`
-9. [Registro de Testes de Software](docs/09-Registro%20de%20Testes%20de%20Software.md) `não iniciado`
-10. [Apresentação do Projeto](docs/10-Apresentação%20do%20Projeto.md) `não iniciado`
-11. [Referências](docs/11-Referências.md) `não iniciado`
+6. [Template padrão do Site](docs/06-Template%20padrão%20do%20Site.md) 
+7. [Programação de Funcionalidades](docs/07-Programação%20de%20Funcionalidades.md) 
+8. [Plano de Testes de Software](docs/08-Plano%20de%20Testes%20de%20Software.md) 
+9. [Registro de Testes de Software](docs/09-Registro%20de%20Testes%20de%20Software.md)
+10. [Apresentação do Projeto](/presentation/Pomodoro's%20organizer%20(1).pptx) 
+11. [Referências](docs/11-Referências.md)
 
 
 # Código
 
 * [Código Fonte](src/README.md) `não iniciado`
+
 
 
 # Apresentação
