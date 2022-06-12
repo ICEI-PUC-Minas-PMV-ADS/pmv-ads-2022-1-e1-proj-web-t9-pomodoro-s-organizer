@@ -39,7 +39,7 @@ Neste momento a página está em desenvolvimento.
 7. [Programação de Funcionalidades](docs/07-Programação%20de%20Funcionalidades.md) 
 8. [Plano de Testes de Software](docs/08-Plano%20de%20Testes%20de%20Software.md) 
 9. [Registro de Testes de Software](docs/09-Registro%20de%20Testes%20de%20Software.md)
-10. [Apresentação do Projeto](docs/10-Apresentação%20do%20Projeto.md) 
+10. [Apresentação do Projeto](/presentation/Pomodoro's%20organizer%20(1).pptx) 
 11. [Referências](docs/11-Referências.md)
 
 
