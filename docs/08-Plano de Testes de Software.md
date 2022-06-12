@@ -9,8 +9,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir.
 
 |Caso de Teste | CT-01 - Cadastrar com sucesso uma atividade e sua duração e tempo de intervalo|
 |---|---|
-|Requisitos Associados|RF-01 - O site deve apresentar uma ferramenta de agenda para incluir e gerenciar as matérias que devem ser estudadas em cada horário.<br>RF-03 - A agenda deve conter uma barra de status para que o usuário possa controlar o progresso de cada atividade.
-|
+|Requisitos Associados|RF-01 - O site deve apresentar uma ferramenta de agenda para incluir e gerenciar as matérias que devem ser estudadas em cada horário.<br>RF-03 - A agenda deve conter uma barra de status para que o usuário possa controlar o progresso de cada atividade.|
 |Objetivo do Teste|Verificar se a criação de atividades está acontecendo corretamente|
 |Passos|1) Acessar o navegador<br> 2) Informar o endereço do site<br> 3) Visualizar a página principal <br> 4) Acionar [Adicionar atividade]<br>5) Preencher os dados obrigatórios<br>6) Acionar [Confirmar]|
 |Critérios de Êxito|- Site informa a mensagem “Inclusão de dados realizada”<br> - Visualizar a atividade criada no menu “agenda”|
@@ -47,7 +46,7 @@ Os testes funcionais a serem realizados no aplicativo são descritos a seguir.
 |---|---|
 |Requisitos Associados|RF-01 - O site deve apresentar uma ferramenta de agenda para incluir e gerenciar as matérias que devem ser estudadas em cada horário.|
 |Objetivo do Teste|Verificar se o sistema impossibilita cadastrar mais de uma atividade no mesmo horário|
-|Passos|1) Acessar o navegador<br>2) Informar o endereço do site<br>3) Visualizar a página principal<br>4) Acionar [Adicionar atividade]<br>5) Preencher os dados obrigatórios<br>6) Acionar [Confirmar]<br>7) Acionar [Adicionar atividade]<br>8) Preencher os campos “Hora Início / Minuto início” e “Hora Fim/ Minuto Fim” com um valor que coincide com os valores dos campos atividade cadastrada anteriormente<br>|
+|Passos|1) Acessar o navegador<br>2) Informar o endereço do site<br>3) Visualizar a página principal<br>4) Acionar [Adicionar atividade]<br>5) Preencher os dados obrigatórios<br>6) Acionar [Confirmar]<br>7) Acionar [Adicionar atividade]<br>8) Preencher os campos “Hora Início / Minuto início” e “Hora Fim/ Minuto Fim” com um valor que coincide com os valores dos campos atividade cadastrada anteriormente<br>9) Acionar [Adicionar Atividade]|
 |Critérios de Êxito|- Site informa a mensagem “O Fim da atividade coincide com outra atividade já programada”|
 
 |Caso de Teste|CT-07- Deletar uma atividade com sucesso|
