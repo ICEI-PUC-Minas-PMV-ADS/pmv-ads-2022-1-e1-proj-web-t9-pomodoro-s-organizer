@@ -1,0 +1,105 @@
+Inicio 10/05------15:04
+[x] Ajustar o tamanho padrão da tela para MD - FEITO
+[x] Incluir dia atual - feito;
+[x] Mudar o tipo de dados do horário - feito;
+ ====================================================
+Inicio 11/05 -- 20:25
+[x] corrigido o mês.
+========================================
+Inicio 12/05
+[x] Ajustes no arquivo de JS - limpesa de código
+[x] Carregar tabela conforme os dados
+=========================================
+Inicio 12/05-- 15:34
+[x] Criar variável de tempo.
+[x] criar função para incluir (separar do botão).
+[-] checar se todos os campos estão preenchidos.
+	[ ] falta não resetar o formulário.
+
+
+==================================================
+15/05 -- 09:18
+[x] Protótipo do timer
+========================================
+25/05
+[x] checar se todos os campos estão preenchidos.
+	[x] falta não resetar o formulário.
+===========================================
+25/05
+[x] Check tempo máximo.
+[x] check tempo mínimo.
+[x] check caracteres máximo no nome.
+
+	
+==========================
+25/05 - commit 3b79a9b95365c6767ca815c76797c0496d9e0d14 
+[x] Função de checkagem de horários repetidos.
+[x] função de ordernar entradadas na agenda.
+
+=====================================================
+26/05 - commit 1a1fd8f67b4f280e406f1e7c99c708b24f319bcd 
+[x] arrumado bug do cancelar não cancela.
+
+========================================================
+26/05 - commit 36875c2c1a0ce9a8f202beef7f7db9d5edec295b
+[x] corrigido o validador de intervalo.
+[x] correção das labels.
+[x] Incluido barra de progresso. 
+[x] incluir botão exclusão [html].
+[x] incluir botão alterar [html].
+
+===========================================================
+27/05 -  commit 21995abce719a52eca54c2679de0b5e6c851aed5
+[x]  Funcionalidade de exlcuir atividade
+===========================================================
+27/05 - commit 11a23c8742ff62ad105db2e8a04f2572d93e7c1d 
+[x] alteração dos incones de edição
+[x] tornando as funções reutilizáveis usando parametros relativos - necessário para inclusão.
+[x] Exibição do menu de alteração.
+
+================================================================
+29-05 - commit 775fdf5c08d0c5140c1834a110f5673305a580fe
+[x] ajustar função incluir para aproveitar na alteração.
+[x] ajustar função ordenar para aproveitar na alteração.
+[x] ajustar botão exibe confirmar para aproveitar na inclusão.
+[x] implementar função de alteração.
+
+
+==============================================================
+29-05 commit 329bf2a8b4730bdd545bdae02c2ac3ca23e0dc89
+[x] - aterado pastas de arquivos.
+
+============================================================
+29-05 - commit 8a2b509d002cfe4beea6bc7328dfbf713d2b0e7e
+	commit c4b82fc9688a330c0d45c4282987a523ef2fac04	 (correção de bug).
+	
+[x] arrumando a o bd temp para se o usuário abrir alterar e incluir ao mesmo
+	não confundir a bdTemp
+[x] arrumado o cancelar para que se estiver aberto mais 1 menu de alteração qdo
+	o usuário cancelar não fechar de todos, só o que o usuário fechou.
+---- Estagiado 29-05 16:23-------------------
+[x] funcionalidade de gravar o status qdo o usuário mudar na agenda.
+=======================================================================
+29-05 - commit 0d46742af1fc8a1fff3d5aa089fcb30e2e5591b7
+[x] mundança de oninput para onclick no range das atividades, para
+	não abrir a barra quando o timer mudar o valor.
+[x] quando altera a atividade o status bar está ficando zerada.
+================================
+30/05 - 
+[x] verificar se precisa mesmo das funções gravaTemp(indice) e gravaTempBD(indice);
+=========================================
+7/06 -  commit a5c5d0d2e2dd5cb4594d45d73ee426bb641411c4
+[x] Objeto - Timer;
+[x] HTML do Timer;
+[x] função do Timer;
+[x] alterado tempo máximo para 5h
+[x] criar funcionalidade pomodoro (momento de estudo e momento de intervalo);
+[x] criar função para tratar visualização de botões de atividades ativas.
+[x] mudar o método de alteração de atividade.
+========================================================
+12-6
+[x] Arrumar nav bar;
+[x] retirado indice das pausas;
+[x] arrumar documentação no Word;
+[ ] Formatar documentação no GIT;
+
