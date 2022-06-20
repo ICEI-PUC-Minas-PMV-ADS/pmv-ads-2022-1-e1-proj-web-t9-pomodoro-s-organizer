@@ -793,8 +793,9 @@ function loopTimer(pTimer, indice){
 		veriMomento(pTimer.tPomod)
 			
 		
-		if (pTimer.tRest < 0){						
-			document.getElementById('timer').innerHTML = `PARABÉNS! TAREFA CONCLUÍDA`;
+		if (pTimer.tRest < 0){
+			stopAtividade (indice)						
+			document.getElementById("AtivName").innerHTML = `PARABÉNS! TAREFA CONCLUÍDA!<br>Escolha a próxima atividade`;
 			paraTimer();
 			
 		//separa o tempo restante em horas minutos e segundo para imprimir formatado.
@@ -839,6 +840,7 @@ function stopAtividade (indice){
 	
 	document.getElementById("AtivName").innerHTML = `<i>Escolha a Atividade</i>`;
 	document.getElementById('timer').innerHTML = ``;
+	document.getElementById("time-pomodoro").innerHTML = ``
 	
 	//alteraPlay(1); // reabilita todos os plays;
 	
