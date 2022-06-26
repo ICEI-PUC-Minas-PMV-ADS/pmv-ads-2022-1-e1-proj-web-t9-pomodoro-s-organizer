@@ -10,6 +10,8 @@ https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2022-1-e1-proj-web-t9-pomodoro-
 
 O código fonte está disponível no diretório src/ do presente repositório. 
 
+* [Código Fonte](../src/)
+
 ## Histórico de versões
 
 ### [0.1.0] - 12/06/2022

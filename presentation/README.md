@@ -16,4 +16,4 @@ Foi elaborado uma apresentação em slides sobre o projeto. O arquivo da apresen
 
 Foi elaborado um vídeo explicativo das funcionalidades da solução. O vídeo está disponível no link abaixo:
 
-* [Video - Apresentação do Projeto](/README.md)
+* [Video - Apresentação do Projeto](Video-Apresenta%C3%A7%C3%A3o.mp4)
