@@ -22,11 +22,9 @@ Um site que une o Método Pomodoro a uma agenda semanal personalizável para que
 
 ## Instruções de utilização
 
-Por se tratar de um de um projeto web-front-end basta acessar o link da página através de um navegador. Não é necessário nenhuma instalação ou configuração extra do ambiente de usuário. A página está hospedada no seguinte link:
+Por se tratar de um de um projeto web-front-end basta acessar o link da página através de um navegador. Não é necessário nenhuma instalação ou configuração extra no ambiente de usuário. A página está hospedada no seguinte link:
 
 https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2022-1-e1-proj-web-t9-pomodoro-s-organizer/
-
-Neste momento a página está em desenvolvimento.
 
 # Documentação
 
@@ -39,16 +37,16 @@ Neste momento a página está em desenvolvimento.
 7. [Programação de Funcionalidades](docs/07-Programação%20de%20Funcionalidades.md) 
 8. [Plano de Testes de Software](docs/08-Plano%20de%20Testes%20de%20Software.md) 
 9. [Registro de Testes de Software](docs/09-Registro%20de%20Testes%20de%20Software.md)
-10. [Apresentação do Projeto](/presentation/Pomodoro's%20organizer%20(1).pptx) 
+10. [Apresentação do Projeto](presentation/README.md) 
 11. [Referências](docs/11-Referências.md)
 
 
 # Código
 
-* [Código Fonte](src/README.md) `não iniciado`
+* [Código Fonte](src/README.md) 
 
 
 
 # Apresentação
 
-* [Apresentação da solução](presentation/README.md) `não iniciado`
+* [Apresentação da solução](presentation/README.md) 
